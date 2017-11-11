@@ -18230,7 +18230,13 @@ exports.default = function () {
   return _react2.default.createElement(
     "div",
     { className: "test" },
-    "a new world order"
+    _react2.default.createElement(
+      "button",
+      { className: "", onClick: function onClick() {
+          return console.log('hola');
+        } },
+      "Nay Hello"
+    )
   );
 };
 
@@ -18280,7 +18286,7 @@ exports = module.exports = __webpack_require__(30)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".test {\n  color: teal; }\n", ""]);
 
 // exports
 

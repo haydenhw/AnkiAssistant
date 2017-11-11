@@ -18230,7 +18230,7 @@ exports.default = function () {
   return _react2.default.createElement(
     "div",
     { className: "test" },
-    "Hola  Mundo"
+    "a new world order"
   );
 };
 

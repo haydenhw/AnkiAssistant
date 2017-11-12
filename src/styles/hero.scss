@@ -1,0 +1,48 @@
+.hero {
+  background: url('../images/test.png');
+  background-size: 100% 900px;
+  background-repeat: no-repeat;
+  display: block;
+  height: 90%;
+  margin-top: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -99;
+}
+
+.hero-arduino-graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-circle {
+  background-color: $orange-light;
+  color: white;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.45098) 0px 42px 98px 0px;
+  border-radius: 50%;
+  height: 600px;
+  position: relative;
+  width: 600px;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: .97;
+
+    .hero-circle-content {
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 350px;
+    }
+}
+
+.hero-title {
+  font-family: $heading-font;
+  font-weight: 700;
+  font-size: 51px;
+}

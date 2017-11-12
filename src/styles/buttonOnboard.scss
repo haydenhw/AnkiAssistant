@@ -1,0 +1,18 @@
+.onboard-button {
+  padding: 15px 20px;
+  border: 0;
+  background-color: $teal-light;
+  border-radius: 6px;
+  color: white;
+  font-size: 13px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  opacity: 1;
+
+  &.header-button {
+    background-color: $orange-light;
+  }
+}

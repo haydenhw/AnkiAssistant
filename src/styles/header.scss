@@ -1,0 +1,30 @@
+.header {
+  background-color: transparent;
+  height: 75px;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9998;
+  transition: background-color .5s ease;
+
+  &.header-white {
+    background-color: rgba(255, 255, 255, .98);
+  }
+
+  .header-logo {
+    background: url('../images/logo-orange.svg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 100px;
+    margin-top: 5px;
+    width: 300px;
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -13,19 +13,14 @@ module.exports = {
         loaders: ["babel-loader"],
       },
       {
-        test: /\.scss/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ["style-loader"],
+        loaders: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.scss/,
+        test: /\.(png|jpg|gif|svg)$/,
         exclude: /node_modules/,
-        loaders: ["css-loader"],
-      },
-      {
-        test: /\.scss/,
-        exclude: /node_modules/,
-        loaders: ["sass-loader"],
+        loaders: ["file-loader"],
       },
     ],
    },

@@ -1,19 +1,21 @@
 .onboard-button {
-  padding: 15px 20px;
-  border: 0;
-  background-color: $teal-light;
   border-radius: 6px;
+  background-color: $teal-light;
+  border: 0;
   color: white;
-  font-size: 13px;
+  font-size: 20px;
   font-family: 'Roboto';
   font-weight: 700;
-  position: absolute;
-  top: 15px;
-  right: 30px;
   opacity: 1;
+  padding: 20px 40px;
 
   &.header-button {
+    font-size: 13px;
     background-color: $orange-light;
+    padding: 15px 20px;
+    position: absolute;
+    right: 30px;
+    top: 15px;
     transition: visibility .1s ease;
 
     &.header-button-hidden {

@@ -1,41 +1,13 @@
-// var path = require('path');
-// var webpack = require('webpack');
-//
-// module.exports = {
-//   devtool: 'cheap-module-eval-source-map',
-//   entry: [
-//     'webpack-hot-middleware/client',
-//     './src/index'
-//   ],
-//   output: {
-//     path: path.join(__dirname, 'dist'),
-//     filename: 'bundle.js',
-//     publicPath: '/static/'
-//   },
-//   plugins: [
-//     new webpack.HotModuleReplacementPlugin()
-//   ],
-//   module: {
-//     loaders: [{
-//       test: /\.js$/,
-//       loaders: ['react-hot', 'babel'],
-//       include: path.join(__dirname, 'src')
-//     }]
-//   }
-// };
-
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-hot-middleware/client',
     "./src/index.js",
   ],
   output: {
     filename: "bundle.js",
     path: __dirname + "/dist",
-    publicPath: '/static',
   },
   devServer: {
     overlay: true,
@@ -45,7 +17,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["react-hot-loader", "babel-loader"],
+        loaders: ["babel-loader"],
       },
       {
         test: /\.scss$/,
@@ -60,11 +32,10 @@ module.exports = {
     ],
    },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: __dirname + "/src/index.html",
-    // }),
-    // new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: __dirname + "/index.html",
+    }),
+    new webpack.NamedModulesPlugin(),
   ],
- // devtool: 'inline-source-map'
+ devtool: 'inline-source-map'
 };

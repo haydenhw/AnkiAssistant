@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 export default class App extends React.Component {
   constructor() {
@@ -17,6 +16,11 @@ export default class App extends React.Component {
     this.setState({ scrollY: window.scrollY })
   }
 
+  getHeroOpacity() {
+    const { scrollY } = this.state;
+    return (1 - (scrollY / 750));
+  }
+
   render() {
     const { scrollY } = this.state;
     return(
@@ -25,11 +29,11 @@ export default class App extends React.Component {
           <a className="header-logo" href=""></a>
           <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>GET STARTED</button>
         </div>
-        <section className="hero">
+        <section className="hero" style={{ opacity: this.getHeroOpacity() }}>
           <div className="hero-circle">
             <div className="hero-circle-content">
               <h1 className="hero-title">Design cutting edge electroics in minutes.</h1>
-              <button className="onboard-button">GET retarded</button>
+              <button className="onboard-button">GET STARTED</button>
             </div>
           </div>
       </section>

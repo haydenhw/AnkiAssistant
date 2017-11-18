@@ -14,5 +14,10 @@
 
   &.header-button {
     background-color: $orange-light;
+    transition: visibility .1s ease;
+
+    &.header-button-hidden {
+      visibility: hidden;
+    }
   }
 }

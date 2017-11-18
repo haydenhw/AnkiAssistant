@@ -1,6 +1,23 @@
-const express = require('express')
-const app = express()
+var path = require('path');
+var webpack = require('webpack');
+var express = require('express');
+var config = require('./webpack.config');
 
-app.get('/', (req, res) => res.send('Hello World!'))
-express.static('public');
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+var app = express();
+var compiler = webpack(config);
+
+app.use(require('webpack-dev-middleware')(compiler, {
+  publicPath: config.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.use(express.static('./'));
+
+app.listen(3000, function(err) {
+  if (err) {
+    return console.error(err);
+  }
+
+  console.log('Listening at http://localhost:3000/');
+});

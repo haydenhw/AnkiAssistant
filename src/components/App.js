@@ -1,7 +1,5 @@
 import React from 'react';
-
-const helloOnScroll = () => {
-}
+import axios from 'axios';
 
 export default class App extends React.Component {
   constructor() {
@@ -17,8 +15,6 @@ export default class App extends React.Component {
 
   handleScroll() {
     this.setState({ scrollY: window.scrollY })
-
-    console.log(this.state)
   }
 
   render() {
@@ -27,20 +23,19 @@ export default class App extends React.Component {
       <div className="container">
         <div className={`header ${scrollY > 0 ? 'header-white' : ''}`} >
           <a className="header-logo" href=""></a>
-          <button className="header-button onboard-button">GET STARTED</button>
+          <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>GET STARTED</button>
         </div>
         <section className="hero">
           <div className="hero-circle">
             <div className="hero-circle-content">
               <h1 className="hero-title">Design cutting edge electroics in minutes.</h1>
+              <button className="onboard-button">GET retarded</button>
             </div>
           </div>
       </section>
       <section className="computer">
-
       </section>
     </div>
-  )
-
+  );
   }
 }

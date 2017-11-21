@@ -1,2 +1,10 @@
 ***Tasks***:
-☐ add computer visual section
+☐ add icon cards section
+☐ clean up markup in App component
+☐ set up icomoon
+☐ find and add appropriate icomoon icons
+☐ create color variables for experimentations with card icons
+☐ email Michal
+☐ cleanup scss file
+  ☐ add _landing prefix
+  ☐ add float-grid to base folder

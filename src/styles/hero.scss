@@ -5,7 +5,7 @@
   display: block;
   height: 90%;
   margin-top: 5px;
-  position: fixed;
+  // position: fixed;
   top: 0;
   width: 100%;
   z-index: -99;
@@ -42,7 +42,7 @@
 }
 
 .hero-title {
-  font-family: $heading-font;
+  font-family: $font-heading;
   font-weight: 700;
   font-size: 51px;
 }

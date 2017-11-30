@@ -1,10 +1,20 @@
 ***Tasks***:
-☐ add icon cards section
-☐ clean up markup in App component
-☐ set up icomoon
-☐ find and add appropriate icomoon icons
-☐ create color variables for experimentations with card icons
-☐ email Michal
+
+
+☐ adjust padding around sections
+☐ adjust sub-heading font sizes
+☐ add bbackground color for second or third section
+☐ make different sized images for responsive
+  ☐ look up and read an article
+☐ add box shadow to header
+☐ add arrow icons to get started button
+☐ make logo
+
+
+
+☐ experiment with re-adding second heading
+☐ make computer visual more balanced
+☐ adjust responsive design
 ☐ cleanup scss file
   ☐ add _landing prefix
   ☐ add float-grid to base folder

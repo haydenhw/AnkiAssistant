@@ -3,7 +3,7 @@
   background-size: 100% 900px;
   background-repeat: no-repeat;
   display: block;
-  height: 90%;
+  height: 100%;
   margin-top: 5px;
   // position: fixed;
   top: 0;
@@ -23,9 +23,9 @@
   font-size: 30px;
   box-shadow: rgba(0, 0, 0, 0.45098) 0px 42px 98px 0px;
   border-radius: 50%;
-  height: 600px;
+  height: 475px;
   position: relative;
-  width: 600px;
+  width: 475px;
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
@@ -44,5 +44,6 @@
 .hero-title {
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 51px;
+  font-size: 45px;
+  text-shadow: 3px 3px $orange-meduim-light;
 }

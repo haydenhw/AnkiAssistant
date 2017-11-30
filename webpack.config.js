@@ -20,12 +20,12 @@ module.exports = {
         loaders: ["babel-loader"],
       },
       {
-        test: /\.scss$/,
+        test: /(\.scss$|\.css$)/,
         exclude: /node_modules/,
         loaders: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|svg|woff|woff2|eot|ttf|svg)$/,
         exclude: /node_modules/,
         loaders: ["file-loader"],
       },

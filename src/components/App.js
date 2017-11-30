@@ -15,35 +15,38 @@ export default class App extends React.Component {
   }
 
   handleScroll() {
+    console.log(window.scrollY)
     this.setState({ scrollY: window.scrollY })
   }
 
   getHeroOpacity() {
     const { scrollY } = this.state;
-    return 1;
-    return (1 - (scrollY / 200));
+    // return 0;
+    // return (1 - (scrollY / 200));
   }
 
   render() {
     const { scrollY } = this.state;
     return(
-      <div className="container">
+
+      <div className="landing-container">
         <div className={`header ${scrollY > 0 ? 'header-white' : ''}`} >
           <a className="header-logo" href=""></a>
           <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>GET STARTED</button>
         </div>
-        <section className="hero" >
-          <div className="hero-circle" style={{ opacity: this.getHeroOpacity() }}>
+        <section className="hero" /*style={{ opacity: this.getHeroOpacity() }}*/>
+          <div className="hero-circle">
             <div className="hero-circle-content">
-              <h1 className="hero-title">Design cutting edge electroics in minutes.</h1>
+              <h1 className="hero-title">Design cutting edge electronics in minutes.</h1>
               <button className="onboard-button">GET STARTED</button>
             </div>
           </div>
         </section>
         <section>
-          <div className="landing-page-section-heading">
-            <h2 className="landing-page-section-title">Bring your ideas to life</h2>
-            <p>Learn to create custom circuit board designs with PCBflow, save work in progress diagrams, and export them when you're ready to build the real thing.</p>
+          {/* Consider removing the wrapper class below if not necessary */}
+          <div className="section-heading-wrapper">
+            <h2 className="section-heading">Bring your ideas to life</h2>
+            <p className="section-sub-heading">Learn to create custom circuit board designs with PCBflow, save work in progress diagrams, and export them when you're ready to build the real thing.</p>
           </div>
           <section className="design-to-pcb-visual">
             <div className="computer-wrapper">
@@ -56,32 +59,32 @@ export default class App extends React.Component {
             <img className="circuit-board-image inline-image" src="src/images/real-pcb.jpg" alt="circuit board" />
           </section>
         </section>
-        <section className="landing-page-card-section row">
-          <div className="landing-page-section-heading">
-            <h2>Design with ease</h2>
-            <p>PCBflow's user friendly drag and drop interface is a breeze to learn and use.</p>
+        <section className="landing-card-section row">
+          <div className="section-heading-wrapper">
+            <h2 className="section-heading">Design with ease</h2>
+            <p className="section-sub-heading">PCBflow's user friendly drag and drop interface is a breeze to learn and use.</p>
           </div>
-          <div className="landing-page-card-wrapper">
+          <div className="landing-card-wrapper">
             <div className="col4">
               <LandingPageCard
-                className="landing-page-card"
-                icon="images/info-card-test-icon.png"
+                infoType="no-engineer"
+                iconClassName="card-icon icon-wrench"
                 title="No Engineers Required"
                 content="PCBflow abstracts away the hard parts of printed circuit board design. You don’t need to worry about routing or connections."
               />
             </div>
             <div className="col4">
               <LandingPageCard
-                className="landing-page-card "
-                icon="images/info-card-test-icon.png"
+                infoType="tutorial"
+                iconClassName="card-icon icon-school"
                 title="Interactive Tutorial"
                 content="Our step by step tutorial will teach you how to reason about printed circuit board design while demostrating how to use the tool."
               />
             </div>
             <div className="col4">
               <LandingPageCard
-                className="landing-page-card "
-                icon="images/info-card-test-icon.png"
+                infoType="price-estimate"
+                iconClassName="card-icon icon-credit"
                 title="Instant Price Estimates"
                 content="Get a price estimate that updates automatically as you add and remove modules so you can keep your project under budget."
               />

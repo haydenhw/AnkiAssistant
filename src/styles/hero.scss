@@ -1,11 +1,12 @@
 .hero {
-  background: url('../images/test.png');
+  background: url('../images/component-art1440.png');
   background-size: 100% 100%;
+  // background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   display: block;
   height: 100vh;
   margin-top: 5px;
-  // position: fixed;
   top: 0;
   width: 100%;
   z-index: -99;

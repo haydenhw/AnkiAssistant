@@ -15,7 +15,6 @@ export default class App extends React.Component {
   }
 
   handleScroll() {
-    console.log(window.scrollY)
     this.setState({ scrollY: window.scrollY })
   }
 
@@ -35,20 +34,22 @@ export default class App extends React.Component {
           <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>GET STARTED</button>
         </div>
         <section className="hero" /*style={{ opacity: this.getHeroOpacity() }}*/>
-          <div className="hero-circle">
-            <div className="hero-circle-content">
-              <h1 className="hero-title">Design cutting edge electronics in minutes.</h1>
-              <button className="onboard-button">GET STARTED</button>
+          {/* <div className="hero-circle-wrapper"> */}
+            <div className="hero-circle">
+              <div className="hero-circle-content">
+                <h1 className="hero-title">Design cutting edge electronics in minutes.</h1>
+                <button className="onboard-button">GET STARTED</button>
+              </div>
             </div>
-          </div>
+          {/* </div> */}
         </section>
-        <section>
+        <section className="demo-section">
           {/* Consider removing the wrapper class below if not necessary */}
           <div className="section-heading-wrapper">
             <h2 className="section-heading">Bring your ideas to life</h2>
             <p className="section-sub-heading">Learn to create custom circuit board designs with PCBflow, save work in progress diagrams, and export them when you're ready to build the real thing.</p>
           </div>
-          <section className="design-to-pcb-visual">
+          <div className="design-to-pcb-demo">
             <div className="computer-wrapper">
               <img className="computer-image inline-image" src="src/images/computer.png" alt="computer" />
               <img className="design-tool-screenshot" src="src/images/design-tool-screenshot.png" alt="app screenshot" />
@@ -57,14 +58,14 @@ export default class App extends React.Component {
             <img className="less-dots inline-image" src="src/images/less-dots.svg" alt="dots" />
             <img className="arrows inline-image" src="src/images/arrows.svg" alt="arrow" />
             <img className="circuit-board-image inline-image" src="src/images/real-pcb.jpg" alt="circuit board" />
-          </section>
+          </div>
         </section>
-        <section className="landing-card-section row">
+        <section className="info-card-section row">
           <div className="section-heading-wrapper">
             <h2 className="section-heading">Design with ease</h2>
             <p className="section-sub-heading">PCBflow's user friendly drag and drop interface is a breeze to learn and use.</p>
           </div>
-          <div className="landing-card-wrapper">
+          <div className="info-card-wrapper">
             <div className="col4">
               <LandingPageCard
                 infoType="no-engineer"

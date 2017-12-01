@@ -46,4 +46,28 @@
   font-weight: 700;
   font-size: 45px;
   text-shadow: 3px 3px $orange-meduim-light;
+  margin: 30px auto;
+}
+
+@media only screen and (min-width : 759px) and (max-width : 1024px) {
+  .hero-circle {
+    height: 400px;
+    width: 400px;
+  }
+
+  .hero-title {
+    font-size: 37px;
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width : 481px) and (max-width : 768px) {
+  .hero-circle {
+    height: 375px;
+    width: 375px;
+  }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
 }

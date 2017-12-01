@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 export default function LandingPageCard(props) {
   const { content, iconClassName, infoType, title } = props;
   return (
-    <div className="landing-card">
+    <div className="info-card">
       <div>
         <span className={`${infoType} ${iconClassName}`}></span>
       </div>
-      <h1 className={`landing-card-title ${infoType}`}>{title}</h1>
-      <p className="landing-card-text">{content}</p>
+      <h1 className={`info-card-title ${infoType}`}>{title}</h1>
+      <p className="info-card-text">{content}</p>
     </div>
   );
 }

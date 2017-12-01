@@ -1,4 +1,8 @@
-.landing-card {
+.info-card-section {
+  // padding-top: 60px;
+}
+
+.info-card {
   font-size: 20px;
   width: 100%;
   height: 350px;
@@ -9,7 +13,7 @@
   margin-top: 20px;
 }
 
-.landing-card-title {
+.info-card-title {
   font-family: $font-heading;
   color: $sub-heading-color;
   font-weight: normal;
@@ -17,7 +21,7 @@
   margin-top: 20px;
 }
 
-.landing-card-text {
+.info-card-text {
   font-size: 15px;
   color: #6d7784;
   line-height: 1.5;

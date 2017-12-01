@@ -1,4 +1,10 @@
-.design-to-pcb-visual {
+.demo-section {
+  //#f5f6f6
+  // background-color: $grey-super-light;
+  // background-color: #BAEDEB;
+}
+
+.design-to-pcb-demo {
   margin: 0 auto;
   padding-top: 68px;
   padding-bottom: 85px;
@@ -6,7 +12,7 @@
 
 }
 
-.design-to-pcb-visual:before {
+.design-to-pcb-demo:before {
   content: "";
   display: inline-block;
   vertical-align: middle;

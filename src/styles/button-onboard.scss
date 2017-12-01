@@ -23,3 +23,18 @@
     }
   }
 }
+
+@media only screen and (min-width : 759px) and (max-width : 1024px) {
+  // padding-left:
+}
+
+@media only screen and (min-width : 481px) and (max-width : 768px) {
+  .hero-circle {
+    height: 375px;
+    width: 375px;
+  }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
+}

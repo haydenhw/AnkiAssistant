@@ -1,6 +1,6 @@
 ***Tasks***:
-
-
+☐ make circle responsive
+  ☐ add mixin for responvieness
 ☐ adjust padding around sections
 ☐ adjust sub-heading font sizes
 ☐ add bbackground color for second or third section
@@ -9,10 +9,9 @@
 ☐ add box shadow to header
 ☐ add arrow icons to get started button
 ☐ make logo
+☐ refactor existing responsive code with mixin
 
 
-
-☐ experiment with re-adding second heading
 ☐ make computer visual more balanced
 ☐ adjust responsive design
 ☐ cleanup scss file

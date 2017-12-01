@@ -12,10 +12,11 @@
   &.header-white {
     background-color: rgba(255, 255, 255, .96);
     border-bottom: 1px solid $grey-light;
+    box-shadow: 0 0 50px -10px rgba(0, 31, 48, .2);
   }
 
   .header-logo {
-    background: url('../images/logo-orange.svg');
+    background: url('../images/logo-orange-cropped.svg');
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;

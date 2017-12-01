@@ -1,20 +1,16 @@
 ***Tasks***:
-☐ make circle responsive
-  ☐ add mixin for responvieness
-☐ adjust padding around sections
-☐ adjust sub-heading font sizes
-☐ add bbackground color for second or third section
-☐ make different sized images for responsive
-  ☐ look up and read an article
-☐ add box shadow to header
-☐ add arrow icons to get started button
 ☐ make logo
-☐ refactor existing responsive code with mixin
-☐ add text shadow to get started button
 ☐ fix get started button arrow in header
+☐ rm text shadow from header get started
+☐ deploy
+  ☐ try building
+  ☐ see that html file is copied to dist folder
+  ☐ serve html file from dist
+☐ work on responsiveness of app demo
+☐ optimize responsiveness for mobile
+☐ adjust padding around sections
 
-☐ make computer visual more balanced
-☐ adjust responsive design
 ☐ cleanup scss file
   ☐ add _landing prefix
   ☐ add float-grid to base folder
+  ☐ refactor existing responsive code with mixin

@@ -1,14 +1,15 @@
 .onboard-button {
-  border-radius: 6px;
   background-color: $teal-light;
   border: 0;
+  border-radius: 6px;
+  box-shadow: $orange-meduim 0 1px 6px, $orange-meduim 0 1px 4px;
   color: white;
-  font-size: 18px;
   font-family: 'Roboto';
+  font-size: 18px;
   font-weight: 700;
   opacity: 1;
   padding: 20px 40px;
-  box-shadow: $orange-meduim 0px 1px 6px, $orange-meduim 0px 1px 4px;
+  text-shadow: 3px 3px $teal-medium-light;
 
   &.header-button {
     font-size: 13px;

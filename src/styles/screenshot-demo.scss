@@ -9,7 +9,7 @@
   padding-top: 68px;
   padding-bottom: 85px;
   text-align: center;
-
+  display: inline-block;
 }
 
 .design-to-pcb-demo:before {
@@ -20,10 +20,10 @@
 }
 
 .computer-wrapper {
-  position: relative;
   display: inline-block;
-  width: 41%;
   margin-right: -3%;
+  position: relative;
+  width: 40%;
 }
 
 .inline-image {
@@ -33,11 +33,12 @@
 
 .computer-image {
   width: 75%;
-  text-align: left;
+  width: 100%;
+  // text-align: left;
 }
 
 .circuit-board-image {
-  width: 20%;
+  width: 26%;
 }
 
 .dots {
@@ -55,10 +56,10 @@
 
 .design-tool-screenshot {
   position: absolute;
-  top: 8%;
-  left: 17.6%;
-  height: 62.5%;
-  width: 64.5%;
+  top: 8.3%;
+  left: 6.9%;
+  height: 61.7%;
+  width: 86%;
 }
 
 @media only screen and (max-width: 1175px) {

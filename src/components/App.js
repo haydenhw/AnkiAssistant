@@ -31,7 +31,10 @@ export default class App extends React.Component {
       <div className="landing-container">
         <div className={`header ${scrollY > 0 ? 'header-white' : ''}`} >
           <a className="header-logo" href=""></a>
-          <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>GET STARTED</button>
+          <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>
+            <span>GET STARTED</span>
+            <span className="icon-arrow-right"></span>
+          </button>
         </div>
         <section className="hero" /*style={{ opacity: this.getHeroOpacity() }}*/>
           {/* <div className="hero-circle-wrapper"> */}

@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "npm run build && git cp 'building for deployment' && git push heroku master"
   },
   "repository": {
     "type": "git",

@@ -60,13 +60,13 @@ export default class App extends React.Component {
           </div>
           <div className="design-to-pcb-demo">
             <div className="computer-wrapper">
-              <img className="computer-image inline-image" src={require("public/images/computer.png")} alt="computer" />
-              <img className="design-tool-screenshot" src={require("public/images/design-tool-screenshot.png")} alt="app screenshot" />
+              <img className="computer-image inline-image" src={require("../images/computer.png")} alt="computer" />
+              <img className="design-tool-screenshot" src={require("../images/design-tool-screenshot.png")} alt="app screenshot" />
             </div>
-            <img className="dots inline-image" src={require("public/images/dots.svg")} alt="dots" />
-            <img className="less-dots inline-image" src={require("public/images/less-dots.svg")} alt="dots" />
-            <img className="arrows inline-image" src={require("public/images/arrows.svg")} alt="arrow" />
-            <img className="circuit-board-image inline-image" src={require("public/images/real-pcb.jpg")} alt="circuit board" />
+            <img className="dots inline-image" src={require("../images/dots.svg")} alt="dots" />
+            <img className="less-dots inline-image" src={require("../images/less-dots.svg")} alt="dots" />
+            <img className="arrows inline-image" src={require("../images/arrows.svg")} alt="arrow" />
+            <img className="circuit-board-image inline-image" src={require("../images/real-pcb.jpg")} alt="circuit board" />
           </div>
         </section>
         <section className="info-card-section row">

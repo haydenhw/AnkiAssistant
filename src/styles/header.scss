@@ -1,7 +1,7 @@
 .header {
   background-color: transparent;
   // border-bottom: red;
-  height: 75px;
+  height: 65px;
   padding: 15px;
   position: fixed;
   top: 0;
@@ -15,15 +15,31 @@
     box-shadow: 0 0 50px -10px rgba(0, 31, 48, .2);
   }
 
-  .header-logo {
-    background: url('../images/logo-orange-cropped.svg');
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: block;
-    height: 100px;
-    margin-top: 5px;
-    width: 300px;
+  .header-logo-image {
+    // background: url('../images/logo-orange-cropped.svg');
+    // background-position: top left;
+    // background-repeat: no-repeat;
+    // background-size: 40px;
+    // display: block;
+    // height: 100px;
+    // margin-top: 5px;
+    width: 24px;
+    margin-right: 10px;
+  }
+
+  .header-logo-text {
+    font-size: 25px;
+    color: $black-faded;
+  }
+
+  .header-logo-text-bold {
+    font-weight: 900;
+    font-family: 'Lato';
+  }
+
+  .header-logo-text-light {
+    font-weight: 500;
+    font-family: 'Roboto'
   }
 }
 

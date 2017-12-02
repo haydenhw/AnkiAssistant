@@ -30,7 +30,13 @@ export default class App extends React.Component {
 
       <div className="landing-container">
         <div className={`header ${scrollY > 0 ? 'header-white' : ''}`} >
-          <a className="header-logo" href=""></a>
+          <span className="header-logo">
+            <img className="header-logo-image" src={require("../images/logo-orange-cropped.svg")} alt="logo"/>
+            <span className="header-logo-text">
+              <span className="header-logo-text-bold">PCB</span>
+              <span className="header-logo-text-light">flow</span>
+            </span>
+          </span>
           <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>
             <span>GET STARTED</span>
             <span className="icon-arrow-right"></span>

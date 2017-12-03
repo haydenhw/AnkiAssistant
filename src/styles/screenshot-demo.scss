@@ -1,13 +1,5 @@
-.demo-section {
-  //#f5f6f6
-  // background-color: $grey-super-light;
-  // background-color: #BAEDEB;
-}
-
 .design-to-pcb-demo {
   margin: 0 auto;
-  padding-top: 68px;
-  padding-bottom: 85px;
   text-align: center;
   display: inline-block;
 }
@@ -34,7 +26,6 @@
 .computer-image {
   width: 75%;
   width: 100%;
-  // text-align: left;
 }
 
 .circuit-board-image {
@@ -61,7 +52,7 @@
   top: 8.3%;
   left: 6.9%;
   height: 61.7%;
-  width: 86%;
+  width: 86.1%;
 }
 
 @media only screen and (min-width : 480px) and (max-width : 1224px) {
@@ -79,13 +70,6 @@
     width: 7vw;
   }
 }
-
-//
-// @media only screen and (max-width: 500px) {
-//   .less-dots {
-//     width: 145px;
-//   }
-// }
 
 @media only screen and (min-width : 320px) and (max-width : 480px) {
   .inline-image {
@@ -124,7 +108,6 @@
     width: 75%;
     margin: 0 auto;
   }
-
 
   .circuit-board-image {
     margin: 0 auto;

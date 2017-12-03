@@ -1,10 +1,13 @@
 ***Tasks***:
-☐ adjust padding around sections
-☐ try changing text shadow back to 2px
 ☐ check deployment for images
-☐ check sub sub heading font size with myportfoio
+☐ make get started button in header bigger
+☐ make margins between section heading and content consitent
+☐ get help with making background image responsive
 
 ☐ cleanup scss file
+  ☐ look for classnames to refactor
+  ☐ break hero and hero circle into separate components
+  ☐ look through other files for breakable components
   ☐ add _landing prefix
   ☐ add float-grid to base folder
   ☐ refactor existing responsive code with mixin

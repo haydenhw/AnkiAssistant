@@ -1,7 +1,6 @@
 .hero {
   background: url('../images/component-art1440.png');
   background-size: 100% 100%;
-  // background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: block;
@@ -18,19 +17,26 @@
   left: 0;
 }
 
+.hero-circle-wrapper {
+  border: 1px solid #000;
+  height: 475px;
+  width: 25%;
+}
+
 .hero-circle {
   background-color: $orange-light;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.45098) 0px 42px 98px 0px;
   color: white;
   font-size: 30px;
-  box-shadow: rgba(0, 0, 0, 0.45098) 0px 42px 98px 0px;
-  border-radius: 50%;
   height: 475px;
-  position: relative;
-  width: 475px;
-  top: 20%;
   left: 50%;
-  transform: translateX(-50%);
   opacity: .97;
+  position: relative;
+  position: relative;
+  top: 20%;
+  transform: translateX(-50%);
+  width: 475px;
 
     .hero-circle-content {
       left: 50%;

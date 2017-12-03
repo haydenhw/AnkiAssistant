@@ -1,17 +1,10 @@
 ***Tasks***:
-
-☐ deploy
-☐ try building
-☐ see that html file is copied to dist folder
-☐ serve html file from dist
-☐ make logo
-☐ fix get started button arrow in header
-☐ rm text shadow from header get started
-☐ work on responsiveness of app demo
 ☐ optimize responsiveness for mobile
+☐  work on responsiveness for cards
 ☐ adjust padding around sections
 ☐ try changing text shadow back to 2px
-
+☐ check deployment for images
+☐ check sub sub heading font size with myportfoio
 
 ☐ cleanup scss file
   ☐ add _landing prefix

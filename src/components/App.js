@@ -30,24 +30,27 @@ export default class App extends React.Component {
 
       <div className="landing-container">
         <div className={`header ${scrollY > 0 ? 'header-white' : ''}`} >
-          <span className="header-logo">
-            <img className="header-logo-image" src={require("../images/logo-orange-cropped.svg")} alt="logo"/>
+          <div className="header-logo">
+            <div className="header-logo-alignment-helper"></div>
+            <img className="header-logo-image" src={require("../images/logo-orange-cropped.png")} alt="logo"/>
             <span className="header-logo-text">
               <span className="header-logo-text-bold">PCB</span>
               <span className="header-logo-text-light">flow</span>
             </span>
-          </span>
-          <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>
-            <span>GET STARTED</span>
-            <span className="icon-arrow-right"></span>
-          </button>
+          </div>
+          <div className="header-button-wrapper">
+            <button className={`${scrollY > 0 ? '' : 'header-button-hidden'} header-button onboard-button`}>
+              <span className="header-button-text">GET STARTED</span>
+              <span className="icon-arrow-right"></span>
+            </button>
+          </div>
         </div>
         <section className="hero" /*style={{ opacity: this.getHeroOpacity() }}*/>
           {/* <div className="hero-circle-wrapper"> */}
             <div className="hero-circle">
               <div className="hero-circle-content">
                 <h1 className="hero-title">Design cutting edge electronics in minutes.</h1>
-                <button className="onboard-button">GET STARTED</button>
+                <button className="onboard-button hero-button">GET STARTED</button>
               </div>
             </div>
           {/* </div> */}
@@ -65,7 +68,8 @@ export default class App extends React.Component {
             </div>
             <img className="dots inline-image" src={require("../images/dots.svg")} alt="dots" />
             <img className="less-dots inline-image" src={require("../images/less-dots.svg")} alt="dots" />
-            <img className="arrows inline-image" src={require("../images/arrows.svg")} alt="arrow" />
+            <img className="arrows-right inline-image" src={require("../images/arrows-right.svg")} alt="arrow" />
+            <img className="arrows-down inline-image" src={require("../images/arrows-down.svg")} alt="arrow" />
             <img className="circuit-board-image inline-image" src={require("../images/real-pcb.jpg")} alt="circuit board" />
           </div>
         </section>
@@ -79,7 +83,7 @@ export default class App extends React.Component {
               <LandingPageCard
                 infoType="no-engineer"
                 iconClassName="card-icon icon-wrench"
-                title="No Engineers Required"
+                title="No Engineering Required"
                 content="PCBflow abstracts away the hard parts of printed circuit board design. You don’t need to worry about routing or connections."
               />
             </div>

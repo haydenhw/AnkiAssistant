@@ -49,7 +49,9 @@
   display: none;
 }
 
-.arrows {
+
+.arrows-down,
+.arrows-right {
   display: none;
   width: 45px;
 }
@@ -62,7 +64,7 @@
   width: 86%;
 }
 
-@media only screen and (max-width: 1175px) {
+@media only screen and (min-width : 1024px) and (max-width : 1224px) {
   .dots {
     display: none;
   }
@@ -73,6 +75,33 @@
   }
 }
 
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+  .dots {
+    display: none;
+  }
+
+  .less-dots {
+    display: inline;
+    margin-right: 36px;
+  }
+}
+
+@media only screen and (min-width : 480px) and (max-width : 768px) {
+  .dots {
+    display: none;
+  }
+
+  .less-dots {
+    display: none;
+  }
+
+  .arrows-right {
+    display: inline;
+    margin: 45px;
+  }
+}
+
+
 @media only screen and (max-width: 500px) {
   .less-dots {
     width: 145px;
@@ -80,22 +109,16 @@
 }
 
 @media only screen and (min-width : 320px) and (max-width : 480px) {
-
-  .landing-page-content {
-    padding-top: 128px;
-  }
-
-  .landing-page-text {
-    width: 80%;
-  }
-
-  .landing-page-button {
-    padding: 15px 0;
-    width: 257px;
-  }
-
   .inline-image {
     display: block;
+  }
+
+  .design-tool-screenshot {
+    height: 61.8%;
+    left: 17.7%;
+    position: absolute;
+    top: 8.3%;
+    width: 65%;
   }
 
   .dots {
@@ -103,6 +126,14 @@
   }
 
   .less-dots {
+    display: none;
+  }
+
+  .arrows-down {
+    display: inline;
+  }
+
+  .arrows-right {
     display: none;
   }
 
@@ -115,9 +146,6 @@
     margin: 0 auto;
   }
 
-  .arrows {
-    display: inline;
-  }
 
   .circuit-board-image {
     margin: 0 auto;

@@ -6,6 +6,14 @@ body,
   height: 100%;
 }
 
+button {
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
 section {
   padding: 50px;
   min-height: 80vh;

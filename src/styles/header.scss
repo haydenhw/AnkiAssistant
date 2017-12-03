@@ -1,6 +1,5 @@
 .header {
   background-color: transparent;
-  // border-bottom: red;
   height: 65px;
   padding: 15px;
   position: fixed;
@@ -15,31 +14,39 @@
     box-shadow: 0 0 50px -10px rgba(0, 31, 48, .2);
   }
 
-  .header-logo-image {
-    // background: url('../images/logo-orange-cropped.svg');
-    // background-position: top left;
-    // background-repeat: no-repeat;
-    // background-size: 40px;
-    // display: block;
-    // height: 100px;
-    // margin-top: 5px;
-    width: 24px;
-    margin-right: 10px;
+  .header:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
   }
 
-  .header-logo-text {
+  .header-logo {
     font-size: 25px;
+  }
+
+  .header-logo-image {
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 1em;
+  }
+
+
+  .header-logo-text {
+    font-size: 1em;
     color: $black-faded;
+    vertical-align: middle;
   }
 
   .header-logo-text-bold {
-    font-weight: 900;
     font-family: 'Lato';
+    font-weight: 900;
   }
 
   .header-logo-text-light {
+    font-family: 'Roboto';
     font-weight: 500;
-    font-family: 'Roboto'
   }
 }
 

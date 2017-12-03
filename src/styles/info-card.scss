@@ -3,7 +3,7 @@
 }
 
 .info-card {
-  font-size: 20px;
+  font-size: 21px;
   width: 100%;
   height: 350px;
   background-color: white;
@@ -17,7 +17,7 @@
   font-family: $font-heading;
   color: $black-faded;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1.1em;
   margin-top: 20px;
 }
 
@@ -30,12 +30,12 @@
 }
 
 .card-icon {
-  font-size: 30px;
+  font-size: 1.5em;
 }
 
 .no-engineer {
   &.icon-wrench {
-    font-size: 26px;
+    font-size: 1.2em;
     position: relative;
   }
   color: $red;

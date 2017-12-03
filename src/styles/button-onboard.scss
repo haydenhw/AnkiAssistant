@@ -1,40 +1,76 @@
 .onboard-button {
   background-color: $teal-light;
-  border: 0;
   border-radius: 6px;
-  box-shadow: $orange-meduim 0 1px 6px, $orange-meduim 0 1px 4px;
+  border: 0;
   color: white;
   font-family: 'Roboto';
   font-size: 18px;
   font-weight: 700;
   opacity: 1;
   padding: 20px 40px;
-  text-shadow: 3px 3px $teal-medium-light;
+  transition: background-color .2s linear;
+
+  &.hero-button {
+    box-shadow: $orange-meduim 0 1px 6px, $orange-meduim 0 1px 4px;
+    text-shadow: 3px 3px $teal;
+
+    &:hover {
+      background-color: $teal-super-light;
+    }
+  }
+
+  .header-button-wrapper {
+    height: 100%;
+    border: 1px solid #000;
+  }
 
   &.header-button {
-    font-size: 13px;
     background-color: $orange-light;
-    padding: 15px 20px;
+    display: inline-block;
+    font-size: 11px;
+    padding: 11px;
     position: absolute;
     right: 30px;
-    top: 15px;
-    transition: visibility .1s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: visibility .1s ease, background-color .2s linear;;
+    vertical-align: middle;
+
+    .header-button-text:before {
+      content: '';
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .header-button-text {
+      margin-right: 20px;
+      vertical-align: middle;
+    }
 
     &.header-button-hidden {
       visibility: hidden;
     }
+
+    &:hover {
+      background-color: #FFB74D;
+    }
   }
 }
 
+.icon-arrow-right {
+  vertical-align: middle;
+  font-size: 11px;
+}
 
-@media only screen and (min-width : 759px) and (max-width : 1024px) {
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
   .onboard-button {
     font-size: 16px;
     padding: 18px 36px;
   }
 }
 
-@media only screen and (min-width : 481px) and (max-width : 768px) {
+@media only screen and (min-width : 480px) and (max-width : 768px) {
   .onboard-button {
     font-size: 16px;
     padding: 18px 36px;

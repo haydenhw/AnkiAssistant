@@ -55,7 +55,6 @@ export default class App extends React.Component {
             </div>
           {/* </div> */}
         </section>
-        {/* <section className="demo-section" style={{ backgroundColor: "#fafafa" }}> */}
         <section className="demo-section">
           {/* Consider removing the wrapper class below if not necessary */}
           <div className="section-heading-wrapper">
@@ -75,7 +74,7 @@ export default class App extends React.Component {
           </div>
         </section>
         <section className="info-card-section row">
-          <div className="section-heading-wrapper">
+          <div className="section-heading-wrapper section-heading-wrapper-info">
             <h2 className="section-heading">Design with ease</h2>
             <p className="section-sub-heading">PCBflow's user friendly drag and drop interface is a breeze to learn and use.</p>
           </div>

@@ -1,6 +1,10 @@
 .section-heading-wrapper {
   margin-bottom: 100px;
   text-align: center;
+
+  &.section-heading-wrapper-info {
+    margin-bottom: 80px;
+  }
 }
 
 .section-heading {
@@ -8,7 +12,7 @@
   color: $black-faded;
   font-weight: lighter;
   font-family: $font-heading;
-  font-size: 2.05em;
+  font-size: 2.25em;
   margin-bottom: 20px;
 }
 
@@ -22,6 +26,10 @@
 }
 
 @media only screen and (min-width : 320px) and (max-width : 480px) {
+  .section-heading {
+    font-size: 1.95em;
+  }
+
   .section-sub-heading {
     padding: 0 20px;
   }

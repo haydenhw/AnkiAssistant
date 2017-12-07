@@ -3,7 +3,6 @@
 }
 
 .info-card {
-  background-color: white;
   display: inline-block;
   font-size: 26px;
   padding: 30px;
@@ -19,22 +18,15 @@
 }
 
 .info-card-text {
-  font-size: initial;
+  font-size: 17px;
   color: #6d7784;
   line-height: 1.5;
   text-align: center;
   font-family: $font-paragrpah;
 }
 
-.card-icon {
-  font-size: 1.5em;
-}
 
 .no-engineer {
-  &.icon-wrench {
-    font-size: 1.2em;
-    position: relative;
-  }
   color: $red;
 }
 
@@ -44,6 +36,19 @@
 
 .price-estimate {
   color: $orange-light;
+}
+
+
+.icon-wrench {
+  font-size: 1.1em;
+}
+
+.icon-school {
+  font-size: 1.2em;
+}
+
+.icon-credit {
+  font-size: 1.22em;
 }
 
 @media only screen and (min-width : 320px) and (max-width : 480px) {

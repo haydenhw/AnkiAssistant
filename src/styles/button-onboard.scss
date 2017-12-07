@@ -7,7 +7,7 @@
   font-size: 18px;
   font-weight: 700;
   opacity: 1;
-  padding: 20px 40px;
+  padding: 1.11em 2.22em;
   transition: background-color .2s linear, transform .2s ease;
 
   &.hero-button {
@@ -15,7 +15,7 @@
     text-shadow: 2px 2px $teal;
 
     &:hover {
-      transform: scale(1.1);
+      // transform: scale(1.1);
     }
   }
 
@@ -66,20 +66,29 @@
 @media only screen and (min-width : 768px) and (max-width : 1024px) {
   .onboard-button {
     font-size: 16px;
-    padding: 18px 36px;
   }
 }
 
 @media only screen and (min-width : 480px) and (max-width : 768px) {
   .onboard-button {
-    font-size: 16px;
+    font-size: 14px;
     padding: 18px 36px;
   }
 }
 
 @media only screen and (min-width : 320px) and (max-width : 480px) {
   .onboard-button {
-    font-size: 14px;
-    padding: 15px 30px;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+
+  .onboard-button {
+    font-size: 12px;
+
+    &.header-button {
+      font-size: 11px;
+    }
   }
 }

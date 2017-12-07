@@ -1,8 +1,11 @@
 ***Tasks***:
-☐ check deployment for images
-☐ make get started button in header bigger
-☐ make margins between section heading and content consitent
+☐ import logo from other project
+☐ experiment with making logo larger
+☐ experminet with making headings larger
+☐ experminet with making info card icons smaller
 ☐ get help with making background image responsive
+
+☐ migrate over to main project
 
 ☐ cleanup scss file
   ☐ look for classnames to refactor

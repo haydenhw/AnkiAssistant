@@ -55,6 +55,7 @@ export default class App extends React.Component {
             </div>
           {/* </div> */}
         </section>
+        {/* <section className="demo-section" style={{ backgroundColor: "#fafafa" }}> */}
         <section className="demo-section">
           {/* Consider removing the wrapper class below if not necessary */}
           <div className="section-heading-wrapper">

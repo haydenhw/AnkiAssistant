@@ -6,27 +6,10 @@ body,
   height: 100%;
 }
 
-body {
-  font-size: 19px;
-}
-
 button {
   cursor: pointer;
 
   &:focus {
     outline: 0;
-  }
-}
-
-section {
-  padding-top: 50px;
-  min-height: 80vh;
-  text-align: center;
-};
-
-@media only screen and (min-width : 320px) and (max-width : 480px) {
-  body {
-    font-size: 16px;
-    // background-color: teal;
   }
 }

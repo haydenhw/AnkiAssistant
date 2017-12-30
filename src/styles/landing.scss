@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  border: 1px solid #000;
+  margin: 0px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.header {
+  height: 40px;
+}
+
+.body {
+  height: 90vh;
+}
+
+.hero {
+  height: 50vh;
+}
+
+.hero-image {
+  width: 90%;
+}
+
+.hero-col {
+  display: inline-block;
+  height: 100%;
+  font-size: 0;
+}
+
+.hero-col1 {
+  vertical-align: top;
+  width: 50%;
+}
+
+.hero-col2 {
+  width: 49.4%;
+}
+
+.bottom {
+  border-bottom: none;
+}
+
+.info {
+  height: 10vh;
+  margin: 2px;
+}

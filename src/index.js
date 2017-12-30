@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './styles/main.css'
+import './styles/index.scss'
 
 var state = {
 	currTerm: null,

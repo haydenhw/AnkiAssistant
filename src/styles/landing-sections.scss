@@ -1,0 +1,21 @@
+.section-title {
+  color: $hero-background;
+  position: relative;
+  margin: 55px;
+
+  &:before {
+    background: #bcbcbc;
+    border-radius: 2px;
+    content: '';
+    height: 6px;
+    left: 50%;
+    position: absolute;
+    top: 50px;
+    transform: translateX(-50%);
+    width: 87px;
+  }
+}
+
+.section-content{
+  color: $hero-background;
+}

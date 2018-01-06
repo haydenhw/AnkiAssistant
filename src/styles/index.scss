@@ -2,11 +2,15 @@
   'variables',
   'normalize',
   'base',
-  'landing'
+  'helpers',
+  'landing',
+  'float-grid',
+  'custom-grid'
   ;
 
 // components
 @import
   'landing-sections',
+  'logo',
   'hero'
   ;

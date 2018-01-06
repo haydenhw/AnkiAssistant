@@ -1,17 +1,40 @@
+.hero-container {
+  background: linear-gradient(#2dcc70 15%,  #06a94c 100%);
+}
+
 .hero {
-  background-color: $hero-background ;
+  position: relative;
   color: white;
-  font-size: 16px;
-  height: 70vh;
+  height: 65vh;
   margin-bottom: 30vh;
+  min-height: 240px;
   padding-top: 10vh;
   text-align: center;
+  position: relative;
+  font-size: 2.3em;
 }
 
-.hero-title {
+.hero-heading-wrapper {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.hero-heading {
   margin: 0;
+  font-size: 1em;
 }
 
-.hero-text  {
-  font-size: 1.2em;
+.hero-sub-heading{
+  font-size: .5em;
+}
+
+.hero-laptop-image {
+  width: 100%;
+  margin-top: 18px;
+  // height: 73vw;
+  // max-height: 500px;
+  // // position: absolute;
+  // left: 50%;
+  // top: 96%;
+  // transform: translate(-50%,-50%);
 }

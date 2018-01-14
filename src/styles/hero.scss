@@ -8,17 +8,40 @@
   // height: 65vh;
   // margin-bottom: 30vh;
   // min-height: 460px;
-  padding-top: 87px;
-  padding-bottom: 25px;
+  // padding-top: 65px;
+  padding-bottom: 150px;
   position: relative;
-  text-align: right;
+  text-align: center;
+}
+
+.hero-content-wrapper {
+  // border: 1px solid #000;
+  padding-top: 110px;
+  position: relative;
+  left: 3%;
+  height: 500px;
+  display: inline-block;
+}
+
+.hero-col {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1em;
+}
+
+.hero-text-col {
+  // border: 1px solid black;
+}
+
+.hero-image-col {
+  // border: 1px solid black;
+  width: 800px;
 }
 
 .hero-heading-wrapper {
-  border: 1px solid black;
-  display: inline-block;
-  max-width: 350px;
-  padding-top: 60px;
+  // border: 1px solid black;
+  max-width: 365px;
+  padding-top: 35px;
   text-align: left;
 }
 
@@ -34,12 +57,5 @@
 .hero-laptop-image {
   width: 800px;
   position: relative;
-  left: -103px;
-  margin-top: 18px;
-  // height: 73vw;
-  // max-height: 500px;
-  // // position: absolute;
-  // left: 50%;
-  // top: 96%;
-  // transform: translate(-50%,-50%);
+  // margin-top: 18px;
 }

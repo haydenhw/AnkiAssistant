@@ -4,6 +4,17 @@
   margin-top: 100px;
   // margin: 55px;
 
+}
+
+.section-content {
+  color: $grey-super-dark;
+  width: 85%;
+}
+
+.section-image {
+  width: 300px;
+}
+
   // &:before {
   //   background: #bcbcbc;
   //   border-radius: 2px;
@@ -15,8 +26,3 @@
   //   transform: translateX(-50%);
   //   width: 87px;
   // }
-}
-
-.section-content {
-  color: $hero-background;
-}

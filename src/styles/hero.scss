@@ -1,22 +1,25 @@
 .hero-container {
-  background: linear-gradient(#2dcc70 15%,  #06a94c 100%);
+  background: linear-gradient(#2dcc70 15%, #06a94c 100%);
 }
 
 .hero {
   color: white;
-  font-size: 1.4em;
+  font-size: 2.6em;
   // height: 65vh;
   // margin-bottom: 30vh;
   // min-height: 460px;
   padding-top: 87px;
   padding-bottom: 25px;
   position: relative;
-  text-align: center;
+  text-align: right;
 }
 
 .hero-heading-wrapper {
-  max-width: 85%;
-  margin: 0 auto;
+  border: 1px solid black;
+  display: inline-block;
+  max-width: 350px;
+  padding-top: 60px;
+  text-align: left;
 }
 
 .hero-heading {
@@ -29,7 +32,9 @@
 }
 
 .hero-laptop-image {
-  width: 330px;
+  width: 800px;
+  position: relative;
+  left: -103px;
   margin-top: 18px;
   // height: 73vw;
   // max-height: 500px;

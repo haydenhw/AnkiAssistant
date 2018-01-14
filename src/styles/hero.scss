@@ -9,6 +9,7 @@
   // margin-bottom: 30vh;
   // min-height: 460px;
   // padding-top: 65px;
+  padding-top: 100px;
   padding-bottom: 150px;
   position: relative;
   text-align: center;
@@ -30,7 +31,7 @@
 }
 
 .hero-text-col {
-  // border: 1px solid black;
+  padding-left: 12%;
 }
 
 .hero-image-col {
@@ -57,5 +58,5 @@
 .hero-laptop-image {
   width: 800px;
   position: relative;
-  // margin-top: 18px;
+  right: 25%;
 }

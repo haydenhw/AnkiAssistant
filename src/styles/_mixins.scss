@@ -1,0 +1,106 @@
+@mixin center-vert-horiz() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+@mixin fade-in-delay($seconds) {
+  opacity: 0;
+  animation: fade-in 1s ease-out $seconds forwards;
+}
+
+@mixin hide() {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-mobile) { @content; }
+  }
+
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-mobile + 1) and (max-width: $break-tablet) { @content; }
+  }
+
+  @else if $media == small-screens {
+    @media only screen and (max-width: $break-medium) { @content; }
+  }
+
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-medium + 1) and (max-width: $break-wide - 1) { @content; }
+  }
+
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-wide) { @content; }
+  }
+
+}
+
+// vendor prefixes
+@mixin animation($animation-props) {
+  -webkit-animation: #{$animation-props};
+  -moz-animation: #{$animation-props};
+  -ms-animation: #{$animation-props};
+  -o-animation: #{$animation-props};
+  animation: #{$animation-props};
+}
+
+@mixin animation-fill-mode($mode) {
+  animation-fill-mode: #{$mode};
+  -webkit-animation-fill-mode: #{$mode};
+}
+
+@mixin animation-delay($delay) {
+  animation-delay: #{$delay};
+  -webkit-animation-delay: #{$delay};
+}
+
+@mixin keyframes($anmiation-name) {
+    @-webkit-keyframes #{$anmiation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$anmiation-name} {
+        @content;
+    }
+    @-o-keyframes #{$anmiation-name} {
+        @content;
+    }
+    @keyframes #{$anmiation-name} {
+        @content;
+    }
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}

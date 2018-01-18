@@ -1,8 +1,17 @@
 .logo {
   font-size: .6em;
-  left: 5px;
+  left: 20px;
   position: absolute;
   top: 20px;
+
+  @include respond-to(small-screens) {
+    font-size: .55em;
+  }
+
+  @include respond-to(wide-screens) {
+    left: 5px;
+  }
+
 }
 
 .logo-image {

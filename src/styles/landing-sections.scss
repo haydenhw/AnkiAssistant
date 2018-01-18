@@ -1,18 +1,36 @@
 .section-title {
   color: $hero-background;
   position: relative;
-  margin-top: 100px;
+  // margin-top: 100px;
   // margin: 55px;
 
 }
 
 .section-content {
   color: $grey-super-dark;
+  font-size: .75em;
   width: 85%;
+
+  @include respond-to(small-screens) {
+    margin: 0 auto;
+  }
 }
 
 .section-image {
   width: 300px;
+
+  @include respond-to(handhelds) {
+    width: 100%;
+  }
+
+  &.anki-logo {
+    margin-top: 20px;
+    width: 380px;
+
+    @include respond-to(handhelds) {
+      width: 100%;
+    }
+  }
 }
 
   // &:before {

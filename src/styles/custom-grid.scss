@@ -3,3 +3,19 @@ section {
     margin-bottom: 30px;
   }
 }
+
+.col-frustrated-lg-scrn {
+  @include respond-to(small-screens) {
+    @include hide();
+  }
+}
+
+.col-frustrated-small-scrn {
+  @include respond-to(medium-screens) {
+    @include hide();
+  }
+
+  @include respond-to(wide-screens) {
+    @include hide();
+  }
+}

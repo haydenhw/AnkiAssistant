@@ -5,14 +5,14 @@
 .hero {
   color: white;
   font-size: 2.6em;
-  // height: 65vh;
-  // margin-bottom: 30vh;
-  // min-height: 460px;
-  // padding-top: 65px;
   padding-top: 130px;
   padding-bottom: 50px;
   position: relative;
   text-align: center;
+
+  @include respond-to(small-screens) {
+    padding-top: 50px;
+  }
 }
 
 .hero-content-wrapper {
@@ -43,7 +43,11 @@
   // border: 1px solid black;
   max-width: 365px;
   padding-top: 35px;
-  text-align: left;
+  // text-align: left;
+  @include respond-to(small-screens) {
+    max-width: 750px;
+    margin: 0 auto;
+  }
 }
 
 .hero-heading {
@@ -56,7 +60,22 @@
 }
 
 .hero-laptop-image {
+  // border: 1px solid #000;
   width: 800px;
   position: relative;
   right: 15%;
+
+  @include respond-to(handhelds) {
+    @include hide();
+  }
+
+  @include respond-to(small-screens) {
+    padding-top: 50px;
+    position: static;
+    width: 100%;
+  }
+
+  @include respond-to(medium-screens) {
+    width: 125%;
+  }
 }

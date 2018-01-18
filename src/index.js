@@ -150,6 +150,7 @@ function main() {
 		targetDef: ".js-targetDef"
 	};
 
+	$('.test').html('helloooooooo');
 	initSubmitHandler(state, BASE_URL, elements);
 	initAddTermHandler(state);
 	initConvertHandler(state, elements);

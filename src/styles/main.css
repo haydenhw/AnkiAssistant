@@ -28,7 +28,7 @@ header h1 {
 }
 
 button {
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 10px 32px;
@@ -100,7 +100,7 @@ input[type="text"]{
 }
 
 .def {
-	font-size: .6em;	
+	font-size: .6em;
 }
 
 button[name="addTerm"] {
@@ -162,7 +162,7 @@ textarea {
 }
 
 .instructions {
-	font-size: 17px;	
+	font-size: 17px;
 }
 
 
@@ -170,7 +170,7 @@ textarea {
 	.container {
 		margin-left: 15%;
 		margin-right: 15%;
-	}	
+	}
 
 	textarea {
 		margin-top: 5px;

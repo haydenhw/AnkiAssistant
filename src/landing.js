@@ -1,4 +1,5 @@
-var landingPage =
+export var test = `<div>hello momma</div>`;
+export var landingPage =
 `
   <div class="hero-container">
     <div class="container">
@@ -64,10 +65,4 @@ var landingPage =
       </div>
     </section>
   </main>
- `
-
-
-
- ${
-
-}
+`

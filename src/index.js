@@ -1,5 +1,8 @@
 import $ from 'jquery';
+import { landingPage } from './landing.js'
+
 import './styles/index.scss'
+import './styles/main.css'
 
 var state = {
 	currTerm: null,
@@ -149,8 +152,14 @@ function main() {
 		nativeDef: ".js-nativeDef",
 		targetDef: ".js-targetDef"
 	};
+	var showLanding = false;
+	if (showLanding) {
+		$('app-wrapper').css("display", "none")
+		$('body').html(landingPage);
+	} else {
 
-	$('.test').html('helloooooooo');
+	}
+
 	initSubmitHandler(state, BASE_URL, elements);
 	initAddTermHandler(state);
 	initConvertHandler(state, elements);

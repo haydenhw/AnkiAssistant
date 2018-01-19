@@ -2,7 +2,8 @@ import $ from 'jquery';
 import { landingPage } from './landing.js'
 
 import './styles/index.scss'
-import './styles/main.css'
+// import './styles/main.css'
+
 
 var state = {
 	currTerm: null,
@@ -109,6 +110,11 @@ function renderTextArea(output, elements) {
 	elements.textArea.find("textarea").val(output);
 }
 
+function toggleLandingPage(elements) {
+  elements.landingWrapper.toggleClass("hide");
+  elements.appWrapper.toggleClass("hide");
+}
+
 function initSubmitHandler(state, BASE_URL, elements) {
 	$("form").submit(function(e) {
 		e.preventDefault();
@@ -138,19 +144,29 @@ function initConvertHandler(state, elements) {
 	});
 }
 
+function initToggleLandingHandlers(elements) {
+	$(elements.onboardButton).add(elements.appLogo).on("click", function() {
+		toggleLandingPage(elements);
+	});
+}
+
 function main() {
 	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
 	var elements = {
-		results: $(".js-results"),
-		textArea: $(".js-textArea"),
-		instructions: $(".js-instructions"),
+		appWrapper: $(".js-app-wrapper"),
+		appLogo: $(".js-app-logo"),
 		error: $(".js-error"),
-		search: $("input[name=js-vidSearch]"),
-		termTrans: ".js-termTrans",
-		trans: ".js-trans",
-		term: ".js-term",
+		onboardButton: $(".js-button-onboard"),
+		instructions: $(".js-instructions"),
+		landingWrapper: $(".js-landing-wrapper"),
 		nativeDef: ".js-nativeDef",
-		targetDef: ".js-targetDef"
+		results: $(".js-results"),
+		search: $("input[name=js-vidSearch]"),
+		targetDef: ".js-targetDef",
+		term: ".js-term",
+		termTrans: ".js-termTrans",
+		textArea: $(".js-textArea"),
+		trans: ".js-trans",
 	};
 	var showLanding = false;
 	if (showLanding) {
@@ -160,6 +176,7 @@ function main() {
 
 	}
 
+	initToggleLandingHandlers(elements);
 	initSubmitHandler(state, BASE_URL, elements);
 	initAddTermHandler(state);
 	initConvertHandler(state, elements);

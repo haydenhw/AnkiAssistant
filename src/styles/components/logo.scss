@@ -1,0 +1,35 @@
+.logo {
+  &.landing-logo {
+    color: black;
+    font-size: .6em;
+    left: 20px;
+    position: absolute;
+    top: 20px;
+
+    @include respond-to(small-screens) {
+      font-size: .55em;
+    }
+
+    @include respond-to(wide-screens) {
+      left: 5px;
+    }
+  }
+
+  &.app-logo {
+    color: white;
+    font-size: 1.2em;
+    position: relative;
+    left: -45px;
+  }
+}
+
+.logo-image {
+  display: inline-block;
+  width: 1.7em;
+}
+
+.logo-text {
+  display: inline-block;
+  font-size: 1em;
+  left: 0;
+}

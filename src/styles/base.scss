@@ -13,7 +13,17 @@ body {
 
 button {
   cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  color: $hero-background;
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: .5em;
+  margin-top: 15px;
+  padding: 1em 2em;
+  border: 0;
 
+  transition: all .5s ease-in-out;
   &:focus {
     outline: 0;
   }
@@ -22,6 +32,10 @@ button {
 h1 {
  font-size: 2em;
  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.8em;
 }
 
 main {

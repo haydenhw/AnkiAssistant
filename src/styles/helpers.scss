@@ -1,8 +1,21 @@
-.container {
+.app-container {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.landing-container {
   margin: 0 auto;
   max-width: 1140px;
 }
 
+.grey-background {
+  background-color: #444444;
+}
+
 .hide {
   @include hide();
+}
+
+.module {
+  margin: 40px 0;
 }

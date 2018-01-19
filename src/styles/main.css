@@ -1,33 +1,29 @@
-* {
+/** {
 	box-sizing: border-box;
-}
+}*/
 
-body {
-	background-color: #444444;
-	color: white;
-	font-size: 25px;
-}
+/*body {
+	/*background-color: #444444;*/
+/*}*/
 
-header {
+
+/*header {
 	background-color: #666666;
 	padding: 5px;
-}
+}*/
 
-header h1 {
+/*header h1 {
 	margin-left: -25px;
 	font-size: 35px;
-}
+}*/
 
-.module {
-	margin: 40px 0;
-}
 
-.inline {
+/*.inline {
 	display: inline-block;
 	width: 100px;
-}
+}*/
 
-button {
+/*button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -37,12 +33,12 @@ button {
     border-radius: 3px;
     width: 75px;
     font-size: 20px;
-}
+}*/
 
 /*Search Module*/
 label {
 	display: block;
-	font-size: 30px;
+	font-size: 1.8em;
 }
 
 input[type="image"] {
@@ -113,11 +109,11 @@ button[name="addTerm"] {
 
 /*List Module*/
 
-.listContainer {
+.list-container {
 	position: relative;
 }
 
-.listItems {
+.list-items{
 	position: relative;
 	border: 1px solid white;
 	padding: 10px;
@@ -126,7 +122,7 @@ button[name="addTerm"] {
 	min-height: 200px;
 }
 
-.listItems > div {
+.list-items> div {
 	margin-top: 10px;
 	border: none;
 }
@@ -150,7 +146,7 @@ button[name="convert"] {
 
 /*Text Area*/
 
-.textAreaContainer {
+.text-area-container{
 	margin-top: 80px;
 	width: 100%;
 }

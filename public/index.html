@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<title>AnkiAssistant</title>
@@ -11,11 +12,11 @@
 
 </head>
 <body>
-	<div class="js-landing-wrapper">
+	<div class="js-landing landing">
 		<div class="hero-container">
-    <div class="container">
+    <div class="landing-container">
       <div class="hero row">
-        <div class="logo">
+        <div class="logo landing-logo">
           <img class="logo-image" src="/public/images/logo-black.svg" alt="robot-logo">
           <div class="logo-text">AnkiAssistant</div>
         </div>
@@ -78,39 +79,35 @@
   </main>
 	</div>
 
-	<div class="js-app-wrapper hide">
-		<header>
-			<div class="row">
-				<div class="col12">
-					<div class="container">
-						<h1 class="js-app-logo">AnkiAssistant</h1>
-					</div>
-				</div>
+	<div class="js-app app hide">
+		<header class="app-header">
+			<div class="app-container">
+        <div class="js-app-logo app-logo logo">
+          <img class="logo-image" src="/public/images/logo-black.svg" alt="robot-logo">
+          <div class="logo-text">AnkiAssistant</div>
+        </div>
 			</div>
 		</header>
-		<div class="row">
-			<div class="col12">
-				<div class="container">
+				<div class="app-container">
 					<div class="module">
 						<form>
-							<div class="test"></div>
 							<div>
 								<label>Search for a new word: </label>
 								<div class="searchContainer">
-									<input type="text" name="js-vidSearch">
-									<input class="js-search" type="image" alt="search icon"   src="/public/images/searchButton.png">
+									<input type="text" name="js-term-search">
+									<input class="js-search" type="image" alt="search icon"  src="/public/images/searchButton.png">
 								</div>
 								<div class="js-error error"></div>
 							</div>
 						</form>
 					</div>
 					<div class="js-results module"></div>
-					<div class="js-list-container listContainer module">
+					<div class="js-list-container list-container module">
 						<h3>My List</h3>
-						<div class="js-list listItems "></div>
+						<div class="js-list list-items"></div>
 						<button name='convert'>Convert!</button>
 					</div>
-					<div class="textAreaContainer module">
+					<div class="text-area-container module">
 						<div class="js-instructions instructions"></div>
 						<div class="js-textArea"></div>
 					</div>

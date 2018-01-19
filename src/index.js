@@ -55,36 +55,34 @@ function listToString(list) {
 
 function renderSearchResults(termData, elements) {
 	var template = $(
-	"<div>"+
-		"<div class='js-search-result search-result'>"+
-			"<div class='js-term term inline'></div>"+
-			"<div class='js-trans trans inline'></div>"+
-			"<button class='js-addTerm inline' name='addTerm'>Add</button>"+
-		"</div>"+
-		"<div class='js-native def'></div>"+
-		"<div class='js-target def'></div>"+
-	"</div>"
+		"<div>"+
+			"<div class='js-search-result search-result'>"+
+				"<div class='js-term term inline'></div>"+
+				"<div class='js-translation translation inline'></div>"+
+				"<button class='button-add-term'>Add</button>"+
+			"</div>"+
+		"</div>"
 	);
 
 	template.find(elements.term).text(termData.term);
-	template.find(elements.trans).text(termData.translation);
+	template.find(elements.translation).text(termData.translation);
 	template.find(".js-native").text(termData.nativeDef);
 	template.find(".js-target").text(termData.targetDef);
 
 	elements.searchResult.html(template).addClass("search-result-container");
 }
 
-function renderItem(state, term, trans, idx) {
+function renderItem(state, term, translation, idx) {
 	var template = $(
-		"<div class='js-listItem listItem'>" +
+		"<div class='js-vocab-list-item vocab-list-item'>" +
 		"	<div class='js-term term inline'></div>"+
-		"	<div class='js-trans trans inline'></div>"+
-		"<button class='inline' name='removeTerm'>X</button>"+
+		"	<div class='js-translation translation inline'></div>"+
+		"<button class='js-button-remove-term button-remove-term'>X</button>"+
 		"</div>");
 
 	template.find(".js-term").text(term);
-	template.find(".js-trans").text(trans);
-	template.find("button[name='removeTerm']").click(function(){
+	template.find(".js-translation").text(translation);
+	template.find(".js-button-remove-term").click(function(){
 		removeTerm(state, idx);
 	});
 	return template;
@@ -95,7 +93,7 @@ function renderList(state){
 		return renderItem(state, term.term, term.translation, idx);
 	});
 
-	$(".js-list").html(listHTML);
+	$(".js-vocab-list").html(listHTML);
 }
 
 function renderError(msg, elements) {
@@ -104,7 +102,7 @@ function renderError(msg, elements) {
 
 function renderTextArea(output, elements) {
 	var msg = "Almost done! Now just copy and paste this semicolon-separated list into a text file on your desktop and import into Anki.";
-	var textAreaHTML = "<textarea rows='50' cols='50'></textarea>";
+	var textAreaHTML = "<textarea class='text-list' rows='50' cols='50'></textarea>";
 	elements.instructions.html(msg);
 	elements.textArea.html(textAreaHTML);
 	elements.textArea.find("textarea").val(output);
@@ -139,7 +137,7 @@ function initAddTermHandler(state, elements) {
 }
 
 function initConvertHandler(state, elements) {
-	$("button[name='convert']").on("click", function() {
+	$(".js-button-convert").on("click", function() {
 		var output = listToString(state.wordList);
 		renderTextArea(output, elements);
 	});
@@ -166,7 +164,7 @@ function main() {
 		targetDef: ".js-targetDef",
 		term: ".js-term",
 		textArea: $(".js-textArea"),
-		trans: ".js-trans",
+		translation: ".js-translation",
 	};
 
 	toggleLandingPage(elements);

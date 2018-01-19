@@ -3,19 +3,28 @@
   margin-right: 15%;
 }
 
-.landing-container {
-  margin: 0 auto;
-  max-width: 1140px;
-}
 
 .grey-background {
-  background-color: #444444;
+  background-color: $grey-light;
 }
 
 .hide {
   @include hide();
 }
 
+.landing-container {
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
 .module {
   margin: 40px 0;
+}
+
+.well {
+  background-color: #fff;
+  border: 1px solid #b0b0b0;
+  border-radius: 4px;
+  position: relative;
+  margin: 0 auto;
 }

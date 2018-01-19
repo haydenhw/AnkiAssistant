@@ -4,9 +4,10 @@ $font-paragrpah: 'Roboto', sans-serif;
 $font-main: 'Montserrat';
 
 $black-faded: #424242;
+$blue: #3e86c7;
 $green: #4bae4f;
 $green-light: #7be57f;
-$grey-light: #f7f8f8;
+$grey-light: #f7f7f7;
 $grey-medium: #e5e5e5;
 $grey-super-dark: #757575;
 $grey-super-light: #fafafa;
@@ -17,6 +18,8 @@ $teal: #49ada4;
 $indigo: #4055d4;
 
 $hero-background: $green;
+
+$app-primary: $blue;
 // breakpoints
 
 $break-mobile: 480px;

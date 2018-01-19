@@ -1,0 +1,26 @@
+.text-list-container {
+	margin-top: 80px;
+	width: 100%;
+}
+
+.text-list {
+	margin-top: 5px;
+	font-size: 15px;
+	width: 100%;
+}
+
+.instructions {
+	font-size: 17px;
+}
+
+@media only screen and (min-width: 640px) {
+	.text-list {
+		margin-top: 5px;
+		font-size: 15px;
+	}
+
+	.instructions {
+		font-size: 17px;
+		width: 421px;
+	}
+}

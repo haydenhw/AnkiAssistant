@@ -1,7 +1,16 @@
 .button-remove-term {
+	cursor: pointer;
+	color: $black-faded;
+	font-size: 1.1em;
+	opacity: .4;
 	position: absolute;
-	width: 75px;
+	top: calc(50% - 7px);
 	left: 100%;
-	margin-left: -85px;
-	background-color: #d9534f;
+	transform: translate(-100%, -50%);
+	transition: font-size .2s;
+
+	&:hover {
+		opacity: 1;
+		font-size: 1.3em;
+	}
 }

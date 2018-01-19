@@ -3,6 +3,7 @@ import { landingPage } from './landing.js'
 
 import './styles/index.scss'
 import './styles/main.css'
+import './styles/icons/style.css'
 
 
 var state = {
@@ -55,15 +56,14 @@ function listToString(list) {
 
 function renderSearchResults(termData, elements) {
 	var template = $(
-		"<div>"+
-			"<div class='js-search-result search-result'>"+
-				"<div class='js-term term inline'></div>"+
-				"<div class='js-translation translation inline'></div>"+
-				"<button class='button-add-term'>Add</button>"+
-			"</div>"+
+		"<div class='js-search-result search-result well'>"+
+			"<div class='js-term term inline'></div>"+
+			"<div class='js-translation translation inline'></div>"+
+			"<button class='button-add-term'>" +
+				"<div class='icon-plus'></div>" +
+			"</button>" +
 		"</div>"
 	);
-
 	template.find(elements.term).text(termData.term);
 	template.find(elements.translation).text(termData.translation);
 	template.find(".js-native").text(termData.nativeDef);
@@ -75,11 +75,10 @@ function renderSearchResults(termData, elements) {
 function renderItem(state, term, translation, idx) {
 	var template = $(
 		"<div class='js-vocab-list-item vocab-list-item'>" +
-		"	<div class='js-term term inline'></div>"+
-		"	<div class='js-translation translation inline'></div>"+
-		"<button class='js-button-remove-term button-remove-term'>X</button>"+
+		"	<div class='js-term term'></div>" +
+		"	<div class='js-translation translation inline'></div>" +
+			"<span class='js-button-remove-term button-remove-term icon-trash'></span>" +
 		"</div>");
-
 	template.find(".js-term").text(term);
 	template.find(".js-translation").text(translation);
 	template.find(".js-button-remove-term").click(function(){
@@ -166,8 +165,13 @@ function main() {
 		textArea: $(".js-textArea"),
 		translation: ".js-translation",
 	};
-
 	toggleLandingPage(elements);
+
+	// for testing purposes
+	getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
+	//
+
+
 
 	initToggleLandingHandlers(elements);
 	initSubmitHandler(state, BASE_URL, elements);

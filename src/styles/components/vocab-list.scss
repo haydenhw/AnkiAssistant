@@ -2,16 +2,31 @@
 	position: relative;
 }
 
-.vocab-list{
+.vocab-list {
 	position: relative;
-	border: 1px solid white;
-	padding: 10px;
+	padding: 20px;
 	margin-top: 5px;
-	background-color: #666666;
 	min-height: 200px;
+
 }
 
 .vocab-list-item  {
-	margin-top: 10px;
-	border: none;
+	border-bottom: 1px solid #ededed;
+	position: relative;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+
+	.term, .translation {
+		font-size: 1.2em;
+		font-weight: 600;
+	  display: inline-block;
+	}
+	.term {
+		width: 200px;
+		// margin-left: 20px;
+	}
+
+	.translation {
+		margin: 0;
+	}
 }

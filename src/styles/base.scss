@@ -13,13 +13,13 @@ body {
 
 button {
   cursor: pointer;
+  display: inline-block;
   background-color: white;
   border-radius: 5px;
   color: $hero-background;
   font-family: $font-main;
   font-weight: 500;
   font-size: .5em;
-  margin-top: 15px;
   padding: 1em 2em;
   border: 0;
 

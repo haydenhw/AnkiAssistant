@@ -1,18 +1,21 @@
 .search-result-container {
-  border: 1px solid white;
   font-size: 25px;
   margin-top: 20px;
-  padding: 10px;
-  position: relative;
   width: 100%;
 }
 
 .search-result {
+  position: relative;
 	margin-bottom: 10px;
 }
 
-.term, .translation{
-	vertical-align: bottom;
-	height: 40px;
-	width: 150px;
+.term, .translation {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+
+.translation{
+  margin-top: 20px;
+  color: $app-primary;
 }

@@ -36,42 +36,13 @@
 }*/
 
 /*Search Module*/
-label {
-	display: block;
-	font-size: 1.8em;
-}
 
-input[type="image"] {
-	height: 50px;
-	display: inline-block;
-	position: absolute;
-	bottom: 0;
-	margin-left: 5px;
-}
 
-input[type="text"]{
-	margin-top: 10px;
-	width: 75%;
-	padding: 10px;
-	border-radius: 3px;
-	height: 50px;
-	font-size: 25px;
-}
-
-.searchContainer {
-	position: relative;
-	margin-top: 5px;
-}
-
-.error {
-	margin-top: 10px;
-	font-size: 17px;
-}
 
 
 /*Results Module*/
 
-.results {
+/*.results {
 	border: 1px solid white;
 	width: 100%;
 	margin-top: 20px;
@@ -82,12 +53,7 @@ input[type="text"]{
 
 .results div {
 	margin-bottom: 10px;
-}
-
-
-.termTrans {
-	margin-bottom: 10px;
-}
+}*/
 
 .term, .trans {
 	vertical-align: bottom;

@@ -1,0 +1,26 @@
+.search-bar-container {
+	position: relative;
+	margin-top: 5px;
+}
+
+.search-bar-icon {
+	height: 50px;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin-left: 5px;
+}
+
+.search-bar-input {
+	margin-top: 10px;
+	width: 75%;
+	padding: 10px;
+	border-radius: 3px;
+	height: 50px;
+	font-size: 25px;
+}
+
+.search-bar-error {
+	margin-top: 10px;
+	font-size: 17px;
+}

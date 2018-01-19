@@ -56,7 +56,7 @@ function listToString(list) {
 function renderSearchResults(termData, elements) {
 	var template = $(
 	"<div>"+
-		"<div class='js-termTrans termTrans'>"+
+		"<div class='js-search-result search-result'>"+
 			"<div class='js-term term inline'></div>"+
 			"<div class='js-trans trans inline'></div>"+
 			"<button class='js-addTerm inline' name='addTerm'>Add</button>"+
@@ -71,7 +71,7 @@ function renderSearchResults(termData, elements) {
 	template.find(".js-native").text(termData.nativeDef);
 	template.find(".js-target").text(termData.targetDef);
 
-	elements.results.html(template).addClass("results");
+	elements.searchResult.html(template).addClass("search-result-container");
 }
 
 function renderItem(state, term, trans, idx) {
@@ -119,9 +119,9 @@ function toggleLandingPage(elements) {
 function initSubmitHandler(state, BASE_URL, elements) {
 	$("form").submit(function(e) {
 		e.preventDefault();
-		var searchString = $("input[name='js-term-search']").val().toLowerCase();
+		var searchString = $(".js-search-bar-input").val().toLowerCase();
 		renderError("", elements);
-		elements.results.html("").removeClass("results");
+		elements.searchResult.html("").removeClass("search-result-container");
 
 		if (searchString) {
 			getApiData(state, BASE_URL, searchString, processSearchResults, elements);
@@ -131,8 +131,8 @@ function initSubmitHandler(state, BASE_URL, elements) {
 	});
 }
 
-function initAddTermHandler(state) {
-	$(".js-results").on("click", "button", function() {
+function initAddTermHandler(state, elements) {
+	$(elements.searchResult).on("click", "button", function() {
 		state.wordList.push(state.currTerm);
 		renderList(state);
 	});
@@ -156,16 +156,15 @@ function main() {
 	var elements = {
 		appWrapper: $(".js-app"),
 		appLogo: $(".js-app-logo"),
-		error: $(".js-error"),
+		error: $(".js-search-bar-error"),
 		onboardButton: $(".js-button-onboard"),
 		instructions: $(".js-instructions"),
 		landingWrapper: $(".js-landing"),
 		nativeDef: ".js-nativeDef",
-		results: $(".js-results"),
-		search: $("input[name=js-vidSearch]"),
+		searchResult: $(".js-search-result-container"),
+		search: $(".js-search-bar-input"),
 		targetDef: ".js-targetDef",
 		term: ".js-term",
-		termTrans: ".js-termTrans",
 		textArea: $(".js-textArea"),
 		trans: ".js-trans",
 	};
@@ -174,7 +173,7 @@ function main() {
 
 	initToggleLandingHandlers(elements);
 	initSubmitHandler(state, BASE_URL, elements);
-	initAddTermHandler(state);
+	initAddTermHandler(state, elements);
 	initConvertHandler(state, elements);
 }
 

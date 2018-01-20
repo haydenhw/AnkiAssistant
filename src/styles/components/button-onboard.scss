@@ -1,7 +1,7 @@
 .button-onboard {
   background-color: white;
   border-radius: 5px;
-  color: $hero-background;
+  color: $landing-primary;
   font-family: $font-main;
   font-weight: 500;
   font-size: .5em;
@@ -21,6 +21,6 @@
 
   &:hover {
     color: white;
-    background-color: $green-light;
+    background-color: $green-light-hover;
   }
 }

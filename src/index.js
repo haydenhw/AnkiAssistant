@@ -113,10 +113,20 @@ function renderTextArea(output, elements) {
 	elements.textArea.find("textarea").val(output);
 }
 
-function toggleLandingPage(elements) {
-	$("body").toggleClass("grey-background");
-  elements.landingWrapper.toggleClass("hide");
-  elements.appWrapper.toggleClass("hide");
+function showApp(elements) {
+	const grey = "#f7f7f7";
+	elements.appWrapper.css("display", "block")
+	elements.landingWrapper.css("display", "none");
+	localStorage.lastPageVisited = 'APP'
+	$("body").css("background-color", grey);
+}
+
+function showLanding(elements) {
+	const white = "#ffffff";
+	elements.landingWrapper.css("display", "block");
+  elements.appWrapper.css("display", "none");
+	localStorage.lastPageVisited = 'LANDING'
+	$("body").css("background-color", white);
 }
 
 function initSubmitHandler(state, BASE_URL, elements) {
@@ -149,11 +159,18 @@ function initConvertHandler(state, elements) {
 	});
 }
 
-function initToggleLandingHandlers(elements) {
-	$(elements.buttonOnboard).add(elements.appLogo).on("click", function() {
-		toggleLandingPage(elements);
+function initGetStartedHandler(elements) {
+	$(elements.buttonOnboard).on("click", function() {
+		showApp(elements);
 	});
 }
+
+function initLogoClickHandler(elements) {
+	$(elements.appLogo).on("click", function() {
+		showLanding(elements);
+	});
+}
+
 
 function main() {
 	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
@@ -173,15 +190,18 @@ function main() {
 		textArea: $(".js-textArea"),
 		translation: ".js-translation",
 	};
-	toggleLandingPage(elements);
+
+	localStorage.lastPageVisited === "APP"
+		? showApp(elements)
+		: showLanding(elements);
 
 	// for testing purposes
 	getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
 	//
 
 
-
-	initToggleLandingHandlers(elements);
+	initGetStartedHandler(elements);
+	initLogoClickHandler(elements);
 	initSubmitHandler(state, BASE_URL, elements);
 	initAddTermHandler(state, elements);
 	initConvertHandler(state, elements);

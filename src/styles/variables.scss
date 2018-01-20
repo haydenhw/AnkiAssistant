@@ -6,7 +6,8 @@ $font-main: 'Montserrat';
 $black-faded: #424242;
 $blue: #3e86c7;
 $green: #4bae4f;
-$green-light: #7be57f;
+$green-light: #2dcc70;
+$green-light-hover: #7be57f;
 $grey-light: #f7f7f7;
 $grey-medium: #e5e5e5;
 $grey-dark: #b0b0b0;
@@ -20,7 +21,10 @@ $indigo: #4055d4;
 
 $hero-background: $green;
 
-$app-primary: $blue;
+$app-primary: $green-light;
+$app-primary: #3dcb81;
+
+$landing-primary: $green-light;
 // breakpoints
 
 $break-mobile: 480px;

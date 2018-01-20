@@ -43,8 +43,14 @@ function getApiData(state, BASE_URL, searchString, callback, elements) {
 	$.getJSON(BASE_URL, query, callback(state, searchString, elements));
 }
 
-function removeTerm(state, idx) {
-	state.wordList.splice(idx,1);
+function toggleConvertButtonDisabled(state, elements) {
+	const isWordListLengthZero = state.wordList.length === 0;
+	elements.buttonConvert.prop("disabled", isWordListLengthZero);
+}
+
+function removeTerm(state, idx, elements) {
+	state.wordList.splice(idx, 1);
+	toggleConvertButtonDisabled(state, elements);
 	renderList(state);
 }
 
@@ -72,7 +78,7 @@ function renderSearchResults(termData, elements) {
 	elements.searchResult.html(template).addClass("search-result-container");
 }
 
-function renderItem(state, term, translation, idx) {
+function renderItem(state, term, translation, idx, elements) {
 	var template = $(
 		"<div class='js-vocab-list-item vocab-list-item'>" +
 		"	<div class='js-term term'></div>" +
@@ -82,17 +88,17 @@ function renderItem(state, term, translation, idx) {
 	template.find(".js-term").text(term);
 	template.find(".js-translation").text(translation);
 	template.find(".js-button-remove-term").click(function(){
-		removeTerm(state, idx);
+		removeTerm(state, idx, elements);
 	});
 	return template;
 }
 
-function renderList(state){
+function renderList(state, elements){
 	var listHTML = state.wordList.map(function(term, idx) {
-		return renderItem(state, term.term, term.translation, idx);
+		return renderItem(state, term.term, term.translation, idx, elements);
 	});
 
-	$(".js-vocab-list").html(listHTML);
+	$(".js-vocab-list-items").html(listHTML);
 }
 
 function renderError(msg, elements) {
@@ -101,7 +107,7 @@ function renderError(msg, elements) {
 
 function renderTextArea(output, elements) {
 	var msg = "Almost done! Now just copy and paste this semicolon-separated list into a text file on your desktop and import into Anki.";
-	var textAreaHTML = "<textarea class='text-list' rows='50' cols='50'></textarea>";
+	var textAreaHTML = "<textarea class='text-list well'></textarea>";
 	elements.instructions.html(msg);
 	elements.textArea.html(textAreaHTML);
 	elements.textArea.find("textarea").val(output);
@@ -131,7 +137,8 @@ function initSubmitHandler(state, BASE_URL, elements) {
 function initAddTermHandler(state, elements) {
 	$(elements.searchResult).on("click", "button", function() {
 		state.wordList.push(state.currTerm);
-		renderList(state);
+		toggleConvertButtonDisabled(state, elements);
+		renderList(state, elements);
 	});
 }
 
@@ -143,7 +150,7 @@ function initConvertHandler(state, elements) {
 }
 
 function initToggleLandingHandlers(elements) {
-	$(elements.onboardButton).add(elements.appLogo).on("click", function() {
+	$(elements.buttonOnboard).add(elements.appLogo).on("click", function() {
 		toggleLandingPage(elements);
 	});
 }
@@ -154,7 +161,8 @@ function main() {
 		appWrapper: $(".js-app"),
 		appLogo: $(".js-app-logo"),
 		error: $(".js-search-bar-error"),
-		onboardButton: $(".js-button-onboard"),
+		buttonOnboard: $(".js-button-onboard"),
+		buttonConvert: $(".js-button-convert"),
 		instructions: $(".js-instructions"),
 		landingWrapper: $(".js-landing"),
 		nativeDef: ".js-nativeDef",

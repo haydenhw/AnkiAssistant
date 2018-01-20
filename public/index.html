@@ -95,7 +95,7 @@
 							<div>
 								<label>Search for a new word: </label>
 								<div class="search-bar-container">
-									<input type="text" class="js-search-bar-input search-bar-input well">
+									<input type="text" class="js-search-bar-input search-bar-input well" placeholder="Enter a term in english">
 									<input class="js-search-icon search-bar-icon" type="image" alt="search icn"  src="/public/images/searchButton.png">
 								</div>
 								<div class="js-search-bar-error search-bar-error"></div>
@@ -105,8 +105,10 @@
 					<div class="js-search-result-container module"></div>
 					<div class="js-vocab-list-container vocab-list-container module">
 						<h3>My List</h3>
-						<div class="js-vocab-list vocab-list well"></div>
-						<button class='js-button-convert'>Convert!</button>
+						<div class="js-vocab-list vocab-list well">
+							<div class="js-vocab-list-items"></div>
+							<button class='js-button-convert button-convert' disabled>Convert!</button>
+						</div>
 					</div>
 					<div class="text-list-container module">
 						<div class="js-instructions instructions"></div>

@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-// html,
-// body {
-//   height: 100%;
-// }
 
 body {
   font-family: $font-main;
@@ -36,6 +32,7 @@ h1 {
 
 h3 {
   font-size: 1.8em;
+  margin: 15px 0;
 }
 
 label {
@@ -51,6 +48,7 @@ main {
   }
 }
 
+
 section {
   // border: 1px solid #000;
   font-size: 1.7em;
@@ -60,4 +58,10 @@ section {
   img {
     width: 100%;
   }
+}
+
+@include placeholder() {
+  font-family: $font-main;
+  font-size: .8em;
+  font-weight: 400;
 }

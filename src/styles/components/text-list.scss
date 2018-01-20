@@ -4,23 +4,14 @@
 }
 
 .text-list {
-	margin-top: 5px;
-	font-size: 15px;
+	font-family: monospace;
+	font-size: 1em;
 	width: 100%;
 }
 
 .instructions {
 	font-size: 17px;
-}
-
-@media only screen and (min-width: 640px) {
-	.text-list {
-		margin-top: 5px;
-		font-size: 15px;
-	}
-
-	.instructions {
-		font-size: 17px;
-		width: 421px;
-	}
+	line-height: 1.75;
+	margin-top: 105px;
+	margin-bottom: 15px;
 }

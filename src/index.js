@@ -51,7 +51,7 @@ function toggleConvertButtonDisabled(state, elements) {
 function removeTerm(state, idx, elements) {
 	state.wordList.splice(idx, 1);
 	toggleConvertButtonDisabled(state, elements);
-	renderList(state);
+	renderList(state, elements);
 }
 
 function listToString(list) {
@@ -66,7 +66,7 @@ function renderSearchResults(termData, elements) {
 			"<div class='js-term term inline'></div>"+
 			"<div class='js-translation translation inline'></div>"+
 			"<button class='button-add-term'>" +
-				"<div class='icon-plus'></div>" +
+				"Add" +
 			"</button>" +
 		"</div>"
 	);

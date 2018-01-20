@@ -1,14 +1,11 @@
 .button-add-term {
 	background-color: $green;
-	border: 1px solid $grey-medium;
+	// border: 1px solid $grey-medium;
 	color: $white;
-	padding: .3em .5em;
 	position: absolute;
-	font-size: 1.5em;
-	// width: 75px;
-	top: 50%;
-	left: calc(100% - 20px);
-	transform: translate(-100%, -50%);
+	top: calc(100% + 10px);
+	left: 100%;
+	transform: translate(-100%, 0);
 
 	.icon-plus {
 		position: relative;

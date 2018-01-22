@@ -113,24 +113,11 @@ function renderTextArea(output, elements) {
 	elements.textArea.find("textarea").val(output);
 }
 
-function showApp(elements) {
-	const grey = "#f7f7f7";
-	showPage(getPageMap(elements), "APP", function() {
-		$("body").css("background-color", grey);
-	});
-}
-
-function showLanding(elements) {
-	const white = "#ffffff";
-	showPage(getPageMap(elements), "LANDING", function() {
-		$("body").css("background-color", white);
-	});
-}
-
 function getPageMap(elements) {
 	return {
-		"LANDING": elements.landingWrapper,
 		"APP": elements.appWrapper,
+		"LANDING": elements.landingWrapper,
+		"SEARCH": elements.searchWrapper,
 	}
 }
 
@@ -149,13 +136,48 @@ function showPage(pageMap, pageSelector, callback) {
 	}
 }
 
+function showApp(elements) {
+	const grey = "#f7f7f7";
+	showPage(getPageMap(elements), "APP", function() {
+		$("body").css("background-color", grey);
+	});
+}
+
+function showLanding(elements) {
+	const white = "#ffffff";
+	showPage(getPageMap(elements), "LANDING", function() {
+		$("body").css("background-color", white);
+	});
+}
+
+function showSearch(elements) {
+	const white = "#ffffff";
+	showPage(getPageMap(elements), "SEARCH", function() {
+		$("body").css("background-color", white);
+	});
+}
+
 
 function initSubmitHandler(state, BASE_URL, elements) {
 	$("form").submit(function(e) {
 		e.preventDefault();
 		var searchString = $(".js-search-bar-input").val().toLowerCase();
 		renderError("", elements);
-		elements.searchResult.html("").removeClass("search-result-container");
+		// elements.searchResult.html("").removeClass("search-result-container");
+
+		if (searchString) {
+			getApiData(state, BASE_URL, searchString, processSearchResults, elements);
+		} else {
+			renderError(state.errorMessages.emptySearch, elements);
+		}
+	});
+
+	$("form").submit(function(e) {
+		e.preventDefault();
+		var searchString = $(".js-search-page-input").val().toLowerCase();
+		renderError("", elements);
+		console.log(searchString)
+		// elements.searchResult.html("").removeClass("search-result-container");
 
 		if (searchString) {
 			getApiData(state, BASE_URL, searchString, processSearchResults, elements);
@@ -206,20 +228,30 @@ function main() {
 		nativeDef: ".js-nativeDef",
 		searchResult: $(".js-search-result-container"),
 		search: $(".js-search-bar-input"),
+		searchPageSearch:$(".js-search-page-input"),
+		searchWrapper: $(".js-search"),
 		targetDef: ".js-targetDef",
 		term: ".js-term",
 		textArea: $(".js-textArea"),
 		translation: ".js-translation",
 	};
 
-	localStorage.lastPageVisited === "APP"
-		? showApp(elements)
-		: showLanding(elements);
+	switch(localStorage.lastPageVisited) {
+		case "APP":
+			showApp(elements);
+			break;
+		case "LANDING":
+		case undefined:
+			showLanding(elements);
+			break;
+		default:
+			showLanding(elements);
+	}
 
 	// for testing purposes
 	// getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
 	//
-	showApp(elements);
+	showSearch(elements);
 
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);

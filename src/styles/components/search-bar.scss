@@ -2,6 +2,12 @@
 	background-color: $grey-medium;
 	padding: 10px 0;
 	position: relative;
+
+	&.search-page-input-container {
+		background-color: transparent;
+		margin-top: 30px;
+		text-align: left;
+	}
 }
 
 .search-bar-icon {
@@ -33,6 +39,11 @@
   @include respond-to(handhelds) {
 		width: 85%;
   }
+
+	&.search-page-input {
+		width: 80%;
+		margin-left: 10%;
+	}
 }
 
 .search-bar-error {

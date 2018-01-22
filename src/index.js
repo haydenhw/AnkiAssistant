@@ -115,18 +115,16 @@ function renderTextArea(output, elements) {
 
 function showApp(elements) {
 	const grey = "#f7f7f7";
-	elements.appWrapper.css("display", "block")
-	elements.landingWrapper.css("display", "none");
-	localStorage.lastPageVisited = 'APP'
-	$("body").css("background-color", grey);
+	showPage(getPageMap(elements), "APP", function() {
+		$("body").css("background-color", grey);
+	});
 }
 
 function showLanding(elements) {
 	const white = "#ffffff";
-	elements.landingWrapper.css("display", "block");
-  elements.appWrapper.css("display", "none");
-	localStorage.lastPageVisited = 'LANDING'
-	$("body").css("background-color", white);
+	showPage(getPageMap(elements), "LANDING", function() {
+		$("body").css("background-color", white);
+	});
 }
 
 function getPageMap(elements) {
@@ -221,8 +219,7 @@ function main() {
 	// for testing purposes
 	// getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
 	//
-
-	showPage(getPageMap(elements), "APP");
+	showApp(elements);
 
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);

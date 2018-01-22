@@ -129,6 +129,29 @@ function showLanding(elements) {
 	$("body").css("background-color", white);
 }
 
+function getPageMap(elements) {
+	return {
+		"LANDING": elements.landingWrapper,
+		"APP": elements.appWrapper,
+	}
+}
+
+function showPage(pageMap, pageSelector, callback) {
+	Object.keys(pageMap).forEach(function(page){
+		if (page === pageSelector) {
+			pageMap[page].css("display", "block");
+			localStorage.lastPageVisited = page;
+		} else {
+			pageMap[page].css("display", "none");
+		}
+	});
+
+	if(callback) {
+		callback();
+	}
+}
+
+
 function initSubmitHandler(state, BASE_URL, elements) {
 	$("form").submit(function(e) {
 		e.preventDefault();
@@ -196,9 +219,10 @@ function main() {
 		: showLanding(elements);
 
 	// for testing purposes
-	getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
+	// getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
 	//
 
+	showPage(getPageMap(elements), "APP");
 
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);

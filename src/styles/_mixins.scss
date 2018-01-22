@@ -21,7 +21,7 @@
     @media only screen and (max-width: $break-mobile) { @content; }
   }
 
-  @else if $media == tablet {
+  @else if $media == tablets {
     @media only screen and (min-width: $break-mobile + 1) and (max-width: $break-tablet) { @content; }
   }
 

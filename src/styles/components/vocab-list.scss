@@ -7,7 +7,6 @@
 	position: relative;
 	padding: 20px;
 	min-height: 200px;
-
 }
 
 .vocab-list-item  {
@@ -23,7 +22,10 @@
 	}
 	.term {
 		width: 200px;
-		// margin-left: 20px;
+
+	  @include respond-to(handhelds) {
+			margin-bottom: 5px;
+	  }
 	}
 
 	.translation {

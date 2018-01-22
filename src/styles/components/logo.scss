@@ -21,7 +21,12 @@
     font-size: 25px;
     position: relative;
     left: -45px;
+
+    @include respond-to(small-screens) {
+      left: -10px;
+    }
   }
+
 }
 
 .logo-image {

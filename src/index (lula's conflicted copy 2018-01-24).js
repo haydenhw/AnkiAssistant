@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import { landingPage } from './landing.js';
 import './director.min.js';
+// import  director from 'director';
+// console.log(Router)
+// console.log(director.Router);
 import './styles/index.scss'
 import './styles/main.css'
 import './styles/icons/style.css'
@@ -16,12 +19,11 @@ var state = {
 
 function processSearchResults(state, term, elements) {
 	return function(data) {
-		if (data.tuc[0] && data.tuc[0].phrase) {
+		if (data.tuc[0]) {
 			var termData = {
 				term: term,
-	 			translation: data.tuc[0].phrase.text,
+	 			translation: data.tuc[0].phrase.text
 	 		};
-
 	 		state.currTerm = termData;
 			renderSearchResults(termData, elements);
 			$("form").find(elements.appInput).val("");
@@ -34,6 +36,7 @@ function processSearchResults(state, term, elements) {
 		if (localStorage.lastPageVisited === "SEARCH") {
 			console.log('showing app')
 			window.location.href="/#/app"
+			// showApp(elements);
 		}
 	}
 }
@@ -109,7 +112,7 @@ function renderList(state, elements){
 }
 
 function renderError(msg, elements) {
-	elements.errorWrapper.html("<div class='js-search-bar-error search-bar-error'>" + msg + "</div>");
+	elements.error.html(msg);
 }
 
 function renderTextArea(output, elements) {
@@ -168,7 +171,7 @@ function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement,
 	$(formElement).submit(function(e) {
 		e.preventDefault();
 		var searchString = inputElement.val().toLowerCase();
-		elements.errorWrapper.html("");
+		renderError("", elements);
 
 		if (searchString) {
 			getApiData(state, BASE_URL, searchString, processSearchResults, elements);
@@ -196,7 +199,7 @@ function initConvertHandler(state, elements) {
 
 function initGetStartedHandler(elements) {
 	$(elements.buttonOnboard).on("click", function() {
-		window.location.href = "/#/search";
+		window.location.href = "/#/app";
 	});
 }
 
@@ -215,7 +218,6 @@ function main() {
 		appLogo: $(".js-app-logo"),
 		appWrapper: $(".js-app"),
 		error: $(".js-search-bar-error"),
-		errorWrapper: $(".js-search-bar-error-wrapper"),
 		buttonOnboard: $(".js-button-onboard"),
 		buttonConvert: $(".js-button-convert"),
 		instructions: $(".js-instructions"),

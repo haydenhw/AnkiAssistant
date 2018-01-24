@@ -1,10 +1,12 @@
 import $ from 'jquery';
-import { landingPage } from './landing.js'
-
+import { landingPage } from './landing.js';
+import './director.min.js';
+// import  director from 'director';
+// console.log(Router)
+// console.log(director.Router);
 import './styles/index.scss'
 import './styles/main.css'
 import './styles/icons/style.css'
-
 
 var state = {
 	currTerm: null,
@@ -24,9 +26,17 @@ function processSearchResults(state, term, elements) {
 	 		};
 	 		state.currTerm = termData;
 			renderSearchResults(termData, elements);
-			$("form").find(elements.search).val("");
+			$("form").find(elements.appInput).val("");
+
 	 	} else {
-			renderError(state.errorMessages.termNotFound, elements);
+			console.log('erroring')
+			return renderError(state.errorMessages.termNotFound, elements);
+		}
+
+		if (localStorage.lastPageVisited === "SEARCH") {
+			console.log('showing app')
+			window.location.href="/#/app"
+			// showApp(elements);
 		}
 	}
 }
@@ -113,33 +123,61 @@ function renderTextArea(output, elements) {
 	elements.textArea.find("textarea").val(output);
 }
 
+function getPageMap(elements) {
+	return {
+		"APP": elements.appWrapper,
+		"LANDING": elements.landingWrapper,
+		"SEARCH": elements.searchWrapper,
+	}
+}
+
+function showPage(pageMap, pageSelector, callback) {
+	Object.keys(pageMap).forEach(function(page){
+		if (page === pageSelector) {
+			pageMap[page].css("display", "block");
+			localStorage.lastPageVisited = page;
+		} else {
+			pageMap[page].css("display", "none");
+		}
+	});
+
+	if(callback) {
+		callback();
+	}
+}
+
 function showApp(elements) {
 	const grey = "#f7f7f7";
-	elements.appWrapper.css("display", "block")
-	elements.landingWrapper.css("display", "none");
-	localStorage.lastPageVisited = 'APP'
-	$("body").css("background-color", grey);
+	showPage(getPageMap(elements), "APP", function() {
+		$("body").css("background-color", grey);
+	});
 }
 
 function showLanding(elements) {
 	const white = "#ffffff";
-	elements.landingWrapper.css("display", "block");
-  elements.appWrapper.css("display", "none");
-	localStorage.lastPageVisited = 'LANDING'
-	$("body").css("background-color", white);
+	showPage(getPageMap(elements), "LANDING", function() {
+		$("body").css("background-color", white);
+	});
 }
 
-function initSubmitHandler(state, BASE_URL, elements) {
-	$("form").submit(function(e) {
+function showSearch(elements) {
+	const white = "#ffffff";
+	showPage(getPageMap(elements), "SEARCH", function() {
+		$("body").css("background-color", white);
+	});
+}
+
+function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement, callback) {
+	$(formElement).submit(function(e) {
 		e.preventDefault();
-		var searchString = $(".js-search-bar-input").val().toLowerCase();
+		var searchString = inputElement.val().toLowerCase();
 		renderError("", elements);
-		elements.searchResult.html("").removeClass("search-result-container");
 
 		if (searchString) {
 			getApiData(state, BASE_URL, searchString, processSearchResults, elements);
 		} else {
 			renderError(state.errorMessages.emptySearch, elements);
+			elements.appInput.val(searchString);
 		}
 	});
 }
@@ -161,13 +199,13 @@ function initConvertHandler(state, elements) {
 
 function initGetStartedHandler(elements) {
 	$(elements.buttonOnboard).on("click", function() {
-		showApp(elements);
+		window.location.href = "/#/search";
 	});
 }
 
 function initLogoClickHandler(elements) {
 	$(elements.appLogo).on("click", function() {
-		showLanding(elements);
+		window.location.href = "/#/";
 	});
 }
 
@@ -175,36 +213,59 @@ function initLogoClickHandler(elements) {
 function main() {
 	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
 	var elements = {
-		appWrapper: $(".js-app"),
+		appForm: $(".js-app-form"),
+		appInput: $(".js-search-bar-input"),
 		appLogo: $(".js-app-logo"),
+		appWrapper: $(".js-app"),
 		error: $(".js-search-bar-error"),
 		buttonOnboard: $(".js-button-onboard"),
 		buttonConvert: $(".js-button-convert"),
 		instructions: $(".js-instructions"),
 		landingWrapper: $(".js-landing"),
 		nativeDef: ".js-nativeDef",
+		searchForm: $(".js-search-form"),
+		searchInput: $(".js-search-page-input"),
 		searchResult: $(".js-search-result-container"),
-		search: $(".js-search-bar-input"),
+		searchPageSearch:$(".js-search-page-input"),
+		searchWrapper: $(".js-search"),
 		targetDef: ".js-targetDef",
 		term: ".js-term",
 		textArea: $(".js-textArea"),
 		translation: ".js-translation",
 	};
+	// switch(localStorage.lastPageVisited) {
+	// 	case "APP":
+	// 		showApp(elements);
+	// 		break;
+	// 	case "LANDING":
+	// 	case undefined:
+	// 		showLanding(elements);
+	// 		break;
+	// 	default:
+	// 		showLanding(elements);
+	// }
+    	var routes = {
+			'/': function() { showLanding(elements) },
+      '/search': function() { showSearch(elements) },
+      '/app': function() { showApp(elements) },
+      };
 
-	localStorage.lastPageVisited === "APP"
-		? showApp(elements)
-		: showLanding(elements);
+    var router = Router(routes);
 
+    router.init();
 	// for testing purposes
-	getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
+	// getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
 	//
+	// showSearch(elements);
 
+// function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement, callback) {
 
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);
-	initSubmitHandler(state, BASE_URL, elements);
 	initAddTermHandler(state, elements);
 	initConvertHandler(state, elements);
+	initSubmitHandler(state, BASE_URL, elements, elements.appForm, elements.appInput);
+	initSubmitHandler(state, BASE_URL, elements, elements.searchForm, elements.searchInput);
 }
 
 $(main());

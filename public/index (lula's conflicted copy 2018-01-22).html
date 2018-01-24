@@ -80,24 +80,6 @@
   </main>
 	</div>
 
-	<div class="js-search search" style="display:none">
-		<header class="app-header">
-		</header>
-		<div class="search-container">
-        <div class="logo search-logo">
-          <img class="logo-image" src="/public/images/logo-black.svg" alt="robot-logo">
-          <div class="logo-text">AnkiAssistant</div>
-        </div>
-			<form class="js-search-form">
-				<div class="search-bar-container search-page-input-container">
-					<input type="text" class="js-search-page-input search-bar-input search-page-input well" placeholder="Enter a term in english">
-					<input class="js-search-icon search-bar-icon" type="image" alt="search icn"  src="/public/images/searchButton.png">
-				</div>
-				<div class="js-search-bar-error search-bar-error"></div>
-			</div>
-		</form>
-	</div>
-
 	<div class="js-app app" style="display:none">
 		<header class="app-header">
 			<div class="app-container">
@@ -108,15 +90,15 @@
 			</div>
 		</header>
 		<div>
-			<form class="js-app-form">
+			<form>
 				<div>
 					<div class="search-bar-container">
 						<div class="app-container">
 							<input type="text" class="js-search-bar-input search-bar-input well" placeholder="Enter a term in english">
 							<input class="js-search-icon search-bar-icon" type="image" alt="search icn"  src="/public/images/searchButton.png">
-							<span class="js-search-bar-error search-bar-error"></span>
 						</div>
 					</div>
+					<div class="js-search-bar-error search-bar-error"></div>
 				</div>
 			</form>
 		</div>
@@ -137,6 +119,8 @@
 			</div>
 		</div>
 	</div>
-	<script src="/src/director.min.js" charset="utf-8"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="scripts/app.js"></script> -->
 </body>
 </html>

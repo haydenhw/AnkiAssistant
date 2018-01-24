@@ -250,7 +250,17 @@ function main() {
       '/app': function() { showApp(elements) },
       };
 
-    var router = Router(routes);
+	switch(localStorage.lastPageVisited) {
+		case "APP":
+			showApp(elements);
+			break;
+		case "LANDING":
+		case undefined:
+			showLanding(elements);
+			break;
+		default:
+			showLanding(elements);
+	}
 
     router.init();
 	// for testing purposes

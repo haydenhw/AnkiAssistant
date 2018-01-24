@@ -233,42 +233,15 @@ function main() {
 		textArea: $(".js-textArea"),
 		translation: ".js-translation",
 	};
-	// switch(localStorage.lastPageVisited) {
-	// 	case "APP":
-	// 		showApp(elements);
-	// 		break;
-	// 	case "LANDING":
-	// 	case undefined:
-	// 		showLanding(elements);
-	// 		break;
-	// 	default:
-	// 		showLanding(elements);
-	// }
-    	var routes = {
-			'/': function() { showLanding(elements) },
-      '/search': function() { showSearch(elements) },
-      '/app': function() { showApp(elements) },
-      };
 
-	switch(localStorage.lastPageVisited) {
-		case "APP":
-			showApp(elements);
-			break;
-		case "LANDING":
-		case undefined:
-			showLanding(elements);
-			break;
-		default:
-			showLanding(elements);
-	}
+	var routes = {
+	'/': function() { showLanding(elements) },
+  '/search': function() { showSearch(elements) },
+  '/app': function() { showApp(elements) },
+  };
 
-    router.init();
-	// for testing purposes
-	// getApiData(state, BASE_URL, 'hello', processSearchResults, elements);
-	//
-	// showSearch(elements);
-
-// function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement, callback) {
+	var router = Router(routes);
+  router.init();
 
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);

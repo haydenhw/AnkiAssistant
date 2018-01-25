@@ -7,10 +7,6 @@
   }
 }
 
-.grey-background {
-  background-color: $grey-light;
-}
-
 .hide {
   @include hide();
 }

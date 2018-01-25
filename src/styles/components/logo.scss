@@ -18,10 +18,11 @@
   &.app-logo {
     color: white;
     cursor: pointer;
+    display: inline-block;
     font-size: 25px;
+    margin-right: 10px;
     position: relative;
-    left: -45px;
-
+    top: 10px;
     @include respond-to(small-screens) {
       left: -10px;
     }

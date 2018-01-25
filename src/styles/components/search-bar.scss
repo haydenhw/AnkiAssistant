@@ -1,7 +1,10 @@
 .search-bar-container {
 	background-color: $grey-medium;
-	padding: 10px 0;
+	border-radius: 4px;
+	padding: 8px 5px;
+	padding-right: 50px;
 	position: relative;
+	display: inline-block;
 
 	&.search-page-input-container {
 		background-color: transparent;
@@ -11,26 +14,25 @@
 }
 
 .search-bar-icon {
-	height: 40px;
-	display: inline-block;
+	font-size: 35px;
 	position: absolute;
-	top: 14px;
-
-  @include respond-to(handhelds) {
-    width: 45px;
-  }
+	top: 50%;
+	left: calc(100% - 10px);
+	transform: translate(-100%, -50%)
 }
 
 .search-bar-input {
-	// border-color: $grey-medium;
+	border-color: $grey-light;
+	border-radius: 0;
 	color: $black-faded;
 	display: inline-block;
 	font-size: 1.4em;
-	height: 50px;
-	padding: 10px;
+	height: 30px;
+	padding: 0 8px;
 	position: relative;
 	vertical-align: top;
-	width: 60%;
+	width: 350px;
+
   // @include respond-to(small-screens) {
 	// 	width: 90%;
   // }

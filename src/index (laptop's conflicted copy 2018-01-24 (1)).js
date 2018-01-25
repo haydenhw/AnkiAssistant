@@ -196,7 +196,7 @@ function initConvertHandler(state, elements) {
 
 function initGetStartedHandler(elements) {
 	$(elements.buttonOnboard).on("click", function() {
-		window.location.href = "/#/app";
+		window.location.href = "/#/search";
 	});
 }
 

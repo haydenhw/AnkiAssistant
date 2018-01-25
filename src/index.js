@@ -241,6 +241,8 @@ function main() {
 	var router = Router(routes);
   router.init();
 
+  getApiData(state, BASE_URL, 'hello' , processSearchResults, elements);
+
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);
 	initAddTermHandler(state, elements);

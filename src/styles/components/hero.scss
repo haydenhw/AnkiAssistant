@@ -65,7 +65,7 @@
   position: relative;
   right: 15%;
 
-  @include respond-to(handhelds) {
+  @include respond-to(smartphones) {
     @include hide();
   }
 

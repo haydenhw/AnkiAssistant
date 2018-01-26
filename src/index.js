@@ -232,6 +232,10 @@ function main() {
 		translation: ".js-translation",
 	};
 
+	if (!window.location.hash) {
+		window.location.href = "/#/";
+	}
+
 	var routes = {
 	'/': function() { showLanding(elements) },
   '/search': function() { showSearch(elements) },

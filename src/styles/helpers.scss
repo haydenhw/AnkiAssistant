@@ -5,6 +5,20 @@
   @include respond-to(small-screens) {
     padding: 0 10%;
   }
+
+  @include respond-to(smartphones) {
+    padding: 0 3%;
+  }
+
+  &.header-container {
+    // &:before {
+    //   @include vert-center-pseudo-helper();
+    // }
+
+    @include respond-to(small-screens) {
+      // padding: 0 10%;
+    }
+  }
 }
 
 .hide {

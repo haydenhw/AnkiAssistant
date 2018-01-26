@@ -39,6 +39,7 @@
 .icon-plus:before {
   content: "\e900";
 }
-.icon-trash-2:before {
+
+.icon-trash:before {
   content: "\e901";
 }

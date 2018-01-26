@@ -1,10 +1,21 @@
+.search-bar-form {
+  @include respond-to(handhelds) {
+    display: block;
+  }
+}
+
 .search-bar-container {
 	background-color: $grey-medium;
 	border-radius: 4px;
-	padding: 8px 5px;
+	display: inline-block;
+	padding: 8px;
 	padding-right: 50px;
 	position: relative;
-	display: inline-block;
+	vertical-align: middle;
+
+  @include respond-to(handhelds) {
+    width: 100%;
+  }
 
 	&.search-page-input-container {
 		background-color: transparent;
@@ -30,16 +41,14 @@
 	height: 30px;
 	padding: 0 8px;
 	position: relative;
-	vertical-align: top;
 	width: 350px;
 
-  // @include respond-to(small-screens) {
-	// 	width: 90%;
-  // }
-
+  @include respond-to(small-screens) {
+		width: 325px;
+  }
 
   @include respond-to(handhelds) {
-		width: 85%;
+    width: 100%;
   }
 
 	&.search-page-input {

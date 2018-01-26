@@ -2,7 +2,7 @@
   &.landing-logo {
     color: black;
     font-size: .6em;
-    left: 20px;
+    left: 30px;
     position: absolute;
     top: 20px;
 
@@ -16,15 +16,18 @@
   }
 
   &.app-logo {
+    // border: 1px solid #000;
     color: white;
     cursor: pointer;
     display: inline-block;
     font-size: 25px;
     margin-right: 10px;
     position: relative;
-    top: 10px;
-    @include respond-to(small-screens) {
-      left: -10px;
+    vertical-align: middle;
+    // top: 10px;
+
+    @include respond-to(handhelds) {
+       margin-bottom: 10px;
     }
   }
 
@@ -36,12 +39,16 @@
 
 .logo-image {
   display: inline-block;
-  display: none;
-  width: 1.7em;
+  // display: none;
+  left: -18px;
+  position: absolute;
+  top: -2px;
+  width: 0.5em;;
 }
 
 .logo-text {
   display: inline-block;
   font-size: 1em;
+  font-weight: 500;
   left: 0;
 }

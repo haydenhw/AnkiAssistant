@@ -17,12 +17,12 @@
 }
 
 @mixin respond-to($media) {
-  @if $media == handhelds {
+  @if $media == smartphones {
     @media only screen and (max-width: $break-mobile) { @content; }
   }
 
-  @else if $media == tablets {
-    @media only screen and (min-width: $break-mobile + 1) and (max-width: $break-tablet) { @content; }
+  @else if $media == handhelds {
+    @media only screen and (max-width: $break-tablet) { @content; }
   }
 
   @else if $media == small-screens {
@@ -103,4 +103,13 @@
   -ms-transform: $transforms;
   -webkit-transform: $transforms;
   transform: $transforms;
+}
+
+// insert into a :before pseudo element
+@mixin vert-center-pseudo-helper() {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  border: 1px solid teal; /* so we can see what's going on */
 }

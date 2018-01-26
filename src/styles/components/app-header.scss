@@ -1,4 +1,8 @@
 .app-header {
 	background-color: $app-primary;
-	padding: 15px;
+	padding: 15px 0;
+
+  @include respond-to(handhelds) {
+		text-align: center;
+  }
 }

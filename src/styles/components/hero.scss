@@ -10,6 +10,11 @@
   position: relative;
   text-align: center;
 
+  @include respond-to(medium-screens) {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
   @include respond-to(small-screens) {
     padding-top: 50px;
   }
@@ -60,22 +65,32 @@
 }
 
 .hero-laptop-image {
-  // border: 1px solid #000;
-  width: 800px;
-  position: relative;
-  right: 15%;
+  // border: 1px solid white;
+  width: 105%;
 
-  @include respond-to(smartphones) {
-    @include hide();
-  }
+  @include respond-to(wide-screens) {
+    position: relative;
+    right: 15%;
+    width: 750px;
+  };
+
+  @include respond-to(medium-screens) {
+    width: 120%;
+    margin-top: 10%;
+  };
 
   @include respond-to(small-screens) {
+    margin-top: 0;
     padding-top: 50px;
     position: static;
     width: 100%;
   }
 
-  @include respond-to(medium-screens) {
-    width: 125%;
+  @include respond-to(smartphones) {
+    @include hide();
   }
+
+  // @include respond-to(medium-screens) {
+  //   width: 125%;
+  // }
 }

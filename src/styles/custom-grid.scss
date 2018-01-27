@@ -5,16 +5,12 @@ section {
 }
 
 .col-frustrated-lg-scrn {
-  @include respond-to(small-screens) {
+  @include respond-to(medium-screens) {
     @include hide();
   }
 }
 
 .col-frustrated-small-scrn {
-  @include respond-to(medium-screens) {
-    @include hide();
-  }
-
   @include respond-to(wide-screens) {
     @include hide();
   }

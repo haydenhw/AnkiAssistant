@@ -9,6 +9,7 @@ import './styles/icons/style.css'
 
 var state = {
 	currTerm: null,
+	isInitialRender: true,
 	wordList: [{
 		term: "welcome",
 		translation: "bienvenido",
@@ -19,8 +20,14 @@ var state = {
 	}
 };
 
-function processSearchResults(state, term, elements) {
+function processSearchResults(state, term, elements, callback) {
 	return function(data) {
+		toggleSpinner(elements);
+
+		if (callback) {
+			callback();
+		}
+
 		if (data.tuc[0] && data.tuc[0].phrase) {
 			var termData = {
 				term: term,
@@ -28,23 +35,22 @@ function processSearchResults(state, term, elements) {
 	 		};
 
 	 		state.currTerm = termData;
-			renderSearchResults(termData, elements);
 			$("form").find(elements.appInput).val("");
+			renderSearchResults(state, termData, elements);
 
 	 	} else {
-			console.log('erroring')
 			return renderError(state.errorMessages.termNotFound, elements);
 		}
-
-		if (localStorage.lastPageVisited === "SEARCH") {
-			window.location.href="/#/app"
-		}
-
-		toggleSpinner(elements);
 	}
 }
 
-function getApiData(state, BASE_URL, searchString, callback, elements) {
+function processSearchResultsWithCallback(callback) {
+	return function (state, term, elements) {
+		 	return processSearchResults(state, term, elements, callback);
+	}
+}
+
+function getApiData(state, elements, BASE_URL, searchString, callback ) {
 	var query = {
 		from: "eng",
 		dest: "spa",
@@ -74,12 +80,12 @@ function listToString(list) {
 	}, "");
 }
 
-function renderSearchResults(termData, elements) {
+function renderSearchResults(state, termData, elements) {
 	var template = $(
 		"<div class='js-search-result search-result well'>"+
 			"<div class='js-term term inline'></div>"+
 			"<div class='js-translation translation inline'></div>"+
-			"<button class='button-add-term'>" +
+			"<button class='js-button-add-term button-add-term'>" +
 				"Add" +
 			"</button>" +
 		"</div>"
@@ -90,6 +96,12 @@ function renderSearchResults(termData, elements) {
 	template.find(".js-target").text(termData.targetDef);
 
 	elements.searchResult.html(template).addClass("search-result-container");
+
+	if(!state.isInitialRender) {
+		$(elements.buttonAddTerm).focus();
+	}
+
+	state.isInitialRender = false;
 }
 
 function renderItem(state, term, translation, idx, elements) {
@@ -119,12 +131,18 @@ function renderError(msg, elements) {
 	elements.errorWrapper.html("<div class='js-search-bar-error search-bar-error'>" + msg + "</div>");
 }
 
-function renderTextArea(output, elements) {
+function renderTextArea(wordList, elements) {
 	var msg = "Almost done! Now just copy and paste this semicolon-separated list into a text file on your desktop and import into Anki.";
 	var textAreaHTML = "<textarea class='text-list well'></textarea>";
+	var listString = listToString(wordList);
+	var textAreaHeight = wordList.length * 14 + 100 + 'px';
+
 	elements.instructions.html(msg);
-	elements.textArea.html(textAreaHTML);
-	elements.textArea.find("textarea").val(output);
+	elements.textArea
+		.html(textAreaHTML)
+		.find("textarea")
+		.val(listString)
+		.css("height", textAreaHeight);
 }
 
 function getPageMap(elements) {
@@ -139,7 +157,6 @@ function showPage(pageMap, pageSelector, callback) {
 	Object.keys(pageMap).forEach(function(page){
 		if (page === pageSelector) {
 			pageMap[page].css("display", "block");
-			localStorage.lastPageVisited = page;
 		} else {
 			pageMap[page].css("display", "none");
 		}
@@ -183,7 +200,7 @@ function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement,
 		elements.errorWrapper.html("");
 
 		if (searchString) {
-			getApiData(state, BASE_URL, searchString, processSearchResults, elements);
+			getApiData(state, elements, BASE_URL, searchString, processSearchResults);
 		} else {
 			renderError(state.errorMessages.emptySearch, elements);
 			elements.appInput.val(searchString);
@@ -194,16 +211,16 @@ function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement,
 function initAddTermHandler(state, elements) {
 	$(elements.searchResult).on("click", "button", function() {
 		state.wordList.push(state.currTerm);
-		console.log(state.wordList)
 		toggleConvertButtonDisabled(state, elements);
 		renderList(state, elements);
+		elements.appInput.focus();
 	});
 }
 
 function initConvertHandler(state, elements) {
 	$(".js-button-convert").on("click", function() {
 		var output = listToString(state.wordList);
-		renderTextArea(output, elements);
+		renderTextArea(state.wordList, elements);
 	});
 }
 
@@ -219,7 +236,6 @@ function initLogoClickHandler(elements) {
 	});
 }
 
-
 function main() {
 	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
 	var elements = {
@@ -227,6 +243,7 @@ function main() {
 		appInput: $(".js-search-bar-input"),
 		appLogo: $(".js-app-logo"),
 		appWrapper: $(".js-app"),
+		buttonAddTerm: ".js-button-add-term",
 		buttonConvert: $(".js-button-convert"),
 		buttonOnboard: $(".js-button-onboard"),
 		error: $(".js-search-bar-error"),
@@ -237,7 +254,7 @@ function main() {
 		searchForm: $(".js-search-form"),
 		searchIcon: $(".js-search-bar-icon"),
 		searchInput: $(".js-search-page-input"),
-		searchPageSearch:$(".js-search-page-input"),
+		searchPageSearch: $(".js-search-page-input"),
 		searchResult: $(".js-search-result-container"),
 		searchWrapper: $(".js-search"),
 		spinner: $(".js-search-bar-spinner"),
@@ -263,7 +280,14 @@ function main() {
 	var spinner = new Spinner(spinnerOptions).spin();
 	elements.spinner.html(spinner.el)
 
-  getApiData(state, BASE_URL, 'welcome' , processSearchResults, elements);
+	elements.appInput.focus();
+
+  getApiData(state, elements, BASE_URL, 'welcome' , processSearchResultsWithCallback(function() {
+		setTimeout(function() {
+			state.isInitialRender = false;
+		}, 0);
+	}));
+
 	renderList(state, elements);
 	toggleConvertButtonDisabled(state, elements);
 

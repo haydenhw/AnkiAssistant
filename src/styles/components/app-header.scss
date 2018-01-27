@@ -1,6 +1,10 @@
 .app-header {
 	background-color: $app-primary;
 	padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+	z-index: 1;
 
   @include respond-to(handhelds) {
 		text-align: center;

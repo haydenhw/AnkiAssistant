@@ -1,10 +1,5 @@
 .button-add-term {
-	background-color: $app-primary;
-	color: $white;
-	position: absolute;
-	top: calc(100% + 10px);
-	left: 100%;
-	transform: translate(-100%, 0);
+	@extend %button-app;
 
 	.icon-plus {
 		position: relative;

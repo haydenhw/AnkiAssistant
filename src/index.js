@@ -1,5 +1,7 @@
 import $ from 'jquery';
-import { landingPage } from './landing.js';
+import { Spinner } from 'spin.js';
+import { spinnerOptions } from './spinnerOptions';
+
 import './director.min.js';
 import './styles/index.scss'
 import './styles/main.css'
@@ -7,7 +9,10 @@ import './styles/icons/style.css'
 
 var state = {
 	currTerm: null,
-	wordList: [],
+	wordList: [{
+		term: "welcome",
+		translation: "bienvenido",
+	}],
 	errorMessages: {
 		emptySearch: "Please enter a search term",
 		termNotFound: "Sorry, we don't have a traslation for that term.<br>Please check for spelling errors or try another term."
@@ -32,9 +37,10 @@ function processSearchResults(state, term, elements) {
 		}
 
 		if (localStorage.lastPageVisited === "SEARCH") {
-			console.log('showing app')
 			window.location.href="/#/app"
 		}
+
+		toggleSpinner(elements);
 	}
 }
 
@@ -47,6 +53,7 @@ function getApiData(state, BASE_URL, searchString, callback, elements) {
 		pretty: true
 	};
 
+	toggleSpinner(elements);
 	$.getJSON(BASE_URL, query, callback(state, searchString, elements));
 }
 
@@ -164,6 +171,11 @@ function showSearch(elements) {
 	});
 }
 
+function toggleSpinner(elements) {
+	elements.searchIcon.toggleClass("hide");
+	elements.spinner.toggleClass("hide");
+}
+
 function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement, callback) {
 	$(formElement).submit(function(e) {
 		e.preventDefault();
@@ -182,6 +194,7 @@ function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement,
 function initAddTermHandler(state, elements) {
 	$(elements.searchResult).on("click", "button", function() {
 		state.wordList.push(state.currTerm);
+		console.log(state.wordList)
 		toggleConvertButtonDisabled(state, elements);
 		renderList(state, elements);
 	});
@@ -214,18 +227,20 @@ function main() {
 		appInput: $(".js-search-bar-input"),
 		appLogo: $(".js-app-logo"),
 		appWrapper: $(".js-app"),
+		buttonConvert: $(".js-button-convert"),
+		buttonOnboard: $(".js-button-onboard"),
 		error: $(".js-search-bar-error"),
 		errorWrapper: $(".js-search-bar-error-wrapper"),
-		buttonOnboard: $(".js-button-onboard"),
-		buttonConvert: $(".js-button-convert"),
 		instructions: $(".js-instructions"),
 		landingWrapper: $(".js-landing"),
 		nativeDef: ".js-nativeDef",
 		searchForm: $(".js-search-form"),
+		searchIcon: $(".js-search-bar-icon"),
 		searchInput: $(".js-search-page-input"),
-		searchResult: $(".js-search-result-container"),
 		searchPageSearch:$(".js-search-page-input"),
+		searchResult: $(".js-search-result-container"),
 		searchWrapper: $(".js-search"),
+		spinner: $(".js-search-bar-spinner"),
 		targetDef: ".js-targetDef",
 		term: ".js-term",
 		textArea: $(".js-textArea"),
@@ -245,7 +260,12 @@ function main() {
 	var router = Router(routes);
   router.init();
 
-  getApiData(state, BASE_URL, 'hello' , processSearchResults, elements);
+	var spinner = new Spinner(spinnerOptions).spin();
+	elements.spinner.html(spinner.el)
+
+  getApiData(state, BASE_URL, 'welcome' , processSearchResults, elements);
+	renderList(state, elements);
+	toggleConvertButtonDisabled(state, elements);
 
 	initGetStartedHandler(elements);
 	initLogoClickHandler(elements);

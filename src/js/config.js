@@ -1,3 +1,5 @@
+export	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
+
 export var spinnerOptions = {
   lines: 13, // The number of lines to draw
   length: 6, // The length of each line

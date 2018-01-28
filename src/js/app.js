@@ -1,28 +1,13 @@
 import $ from 'jquery';
 import { Spinner } from 'spin.js';
-import { spinnerOptions } from './spinnerOptions';
+import { BASE_URL, spinnerOptions } from './config';
+import { elements } from './elements';
+import { state } from './state';
 
 import './director.min.js';
 import '../styles/index.scss'
 import '../styles/icons/style.css'
 
-var state = {
-	currTerm: null,
-	isInitialRender: true,
-	wordList: [{
-		term: "welcome",
-		translation: "bienvenido",
-	}],
-	errorMessages: {
-		emptySearch: "Please enter a search term",
-		termNotFound: function(term) {
-			return (
-			"Sorry, we don't have a traslation for: <span class='not-found'>" + term + ". </span>" +
-			"<br/> Please check for spelling errors or try another term."
-		);
-		}
-	}
-};
 
 function processSearchResults(state, term, elements, callback) {
 	return function(data) {
@@ -74,6 +59,7 @@ function toggleConvertButtonDisabled(state, elements) {
 
 function removeTerm(state, idx, elements) {
 	state.wordList.splice(idx, 1);
+	sessionStorage.setItem("wordList", JSON.stringify(state.wordList));
 	toggleConvertButtonDisabled(state, elements);
 	renderList(state, elements);
 }
@@ -139,6 +125,7 @@ function renderItem(state, term, translation, idx, elements) {
 }
 
 function renderList(state, elements){
+	console.log(state.wordList)
 	var listHTML = state.wordList.map(function(term, idx) {
 		return renderItem(state, term.term, term.translation, idx, elements);
 	});
@@ -227,6 +214,7 @@ function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement,
 function initAddTermHandler(state, elements) {
 	$(elements.searchResult).on("click", "button", function() {
 		state.wordList.push(state.currTerm);
+		sessionStorage.setItem("wordList", JSON.stringify(state.wordList));
 		toggleConvertButtonDisabled(state, elements);
 		renderList(state, elements);
 		elements.appInput.focus();
@@ -253,33 +241,6 @@ function initLogoClickHandler(elements) {
 }
 
 function main() {
-	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
-	var elements = {
-		appForm: $(".js-app-form"),
-		appInput: $(".js-search-bar-input"),
-		appLogo: $(".js-app-logo"),
-		appWrapper: $(".js-app"),
-		buttonAddTerm: ".js-button-add-term",
-		buttonConvert: $(".js-button-convert"),
-		buttonOnboard: $(".js-button-onboard"),
-		error: $(".js-error"),
-		errorWrapper: $(".js-error-wrapper"),
-		instructions: $(".js-instructions"),
-		landingWrapper: $(".js-landing"),
-		nativeDef: ".js-nativeDef",
-		searchForm: $(".js-search-form"),
-		searchIcon: $(".js-search-bar-icon"),
-		searchInput: $(".js-search-page-input"),
-		searchPageSearch: $(".js-search-page-input"),
-		searchResult: $(".js-search-result-container"),
-		searchWrapper: $(".js-search"),
-		spinner: $(".js-search-bar-spinner"),
-		targetDef: ".js-targetDef",
-		term: ".js-term",
-		textArea: $(".js-textArea"),
-		translation: ".js-translation",
-	};
-
 	if (!window.location.hash) {
 		window.location.href = "/#/";
 	}
@@ -298,6 +259,7 @@ function main() {
 
 	elements.appInput.focus();
 
+	// start app with sample data for demonstration
   getApiData(state, elements, BASE_URL, 'welcome' , processSearchResultsWithCallback(function() {
 		setTimeout(function() {
 			state.isInitialRender = false;

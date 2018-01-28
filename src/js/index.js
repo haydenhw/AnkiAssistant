@@ -4,7 +4,6 @@ import { spinnerOptions } from './spinnerOptions';
 
 import './director.min.js';
 import '../styles/index.scss'
-// import './styles/main.css'
 import '../styles/icons/style.css'
 
 var state = {

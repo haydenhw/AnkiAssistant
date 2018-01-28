@@ -1,4 +1,11 @@
 .button-search-submit  {
+  background-color: transparent;
+  color: initial;
+  cursor: pointer;
+  font-size: 35px;
+  left: calc(100% - 10px);
   padding: 0;
-  color: initial
+	position: absolute;
+	top:calc(50% + 3px);
+	transform: translate(-100%, -50%);
 }

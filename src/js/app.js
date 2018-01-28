@@ -125,7 +125,6 @@ function renderItem(state, term, translation, idx, elements) {
 }
 
 function renderList(state, elements){
-	console.log(state.wordList)
 	var listHTML = state.wordList.map(function(term, idx) {
 		return renderItem(state, term.term, term.translation, idx, elements);
 	});
@@ -263,7 +262,7 @@ function main() {
 	var lastSearchedWord = savedWordList
 		? savedWordList[savedWordList.length - 1].term
 		: "welcome"
-	console.log(lastSearchedWord);
+
   getApiData(state, elements, BASE_URL, lastSearchedWord , processSearchResultsWithCallback(function() {
 		setTimeout(function() {
 			state.isInitialRender = false;

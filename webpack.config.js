@@ -1,3 +1,4 @@
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
@@ -27,15 +28,19 @@ module.exports = {
       {
         test: /\.(png|jpg|svg|woff|woff2|eot|ttf|svg)$/,
         exclude: /node_modules/,
-        loaders: ["file-loader"],
-      },
+        loader: ["file-loader"],
+      }
     ],
-   },
+  },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: "public/images", to: "public/images" },
+      { from: "src/js/director.min.js", to: "src/js"}
+    ]),
     new HtmlWebpackPlugin({
       template: __dirname + "/public/index.html",
     }),
     new webpack.NamedModulesPlugin(),
   ],
- devtool: 'inline-source-map'
+  devtool: 'inline-source-map'
 };

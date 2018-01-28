@@ -64,15 +64,21 @@
   font-size: .5em;
 }
 
+.hero-laptop-image-col {
+  position: relative;
+}
+
 .hero-laptop-image {
+  position: absolute;
+
   // border: 1px solid white;
   width: 105%;
 
-  @include respond-to(wide-screens) {
-    position: relative;
-    right: 15%;
-    width: 750px;
-  };
+  // @include respond-to(wide-screens) {
+  //   position: relative;
+  //   right: 15%;
+  //   width: 750px;
+  // };
 
   @include respond-to(medium-screens) {
     width: 120%;

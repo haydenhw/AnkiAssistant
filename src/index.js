@@ -16,7 +16,12 @@ var state = {
 	}],
 	errorMessages: {
 		emptySearch: "Please enter a search term",
-		termNotFound: "Sorry, we don't have a traslation for that term.<br>Please check for spelling errors or try another term."
+		termNotFound: function(term) {
+			return (
+			"Sorry, we don't have a traslation for: <span class='not-found'>" + term + ". </span>" +
+			"<br/> Please check for spelling errors or try another term."
+		);
+		}
 	}
 };
 
@@ -39,7 +44,7 @@ function processSearchResults(state, term, elements, callback) {
 			renderSearchResults(state, termData, elements);
 
 	 	} else {
-			return renderError(state.errorMessages.termNotFound, elements);
+      renderSearchResults(state, null, elements, "ERROR", state.errorMessages.termNotFound(term))
 		}
 	}
 }
@@ -79,23 +84,38 @@ function listToString(list) {
 		return av + cv.term + " ; " + cv.translation + "\n";
 	}, "");
 }
-
-function renderSearchResults(state, termData, elements) {
-	var template = $(
-		"<div class='js-search-result search-result well'>"+
+function renderSearchResults(state, termData, elements, resultType, msg) {
+	var resultTemplate = resultType !== "ERROR"
+		? (
 			"<div class='js-term term inline'></div>"+
-			"<div class='js-translation translation inline'></div>"+
+			"<div class='js-translation translation inline'></div>" +
 			"<button class='js-button-add-term button-add-term'>" +
 				"Add" +
-			"</button>" +
+			"</button>"
+		)
+		: (
+			"<div class='js-error-wrapper error-wrapper'>" +
+				"<div class='js-error error'>" + msg + "</div>" +
+			"</div>" +
+			"<button class='js-button-add-term button-add-term' disabled>" +
+				"Add" +
+			"</button>"
+		);
+
+	var wrapperTemplate = $(
+		"<div class='js-search-result search-result well'>"+
+			 resultTemplate +
 		"</div>"
 	);
-	template.find(elements.term).text(termData.term);
-	template.find(elements.translation).text(termData.translation);
-	template.find(".js-native").text(termData.nativeDef);
-	template.find(".js-target").text(termData.targetDef);
 
-	elements.searchResult.html(template).addClass("search-result-container");
+	if (termData) {
+		wrapperTemplate.find(elements.term).text(termData.term);
+		wrapperTemplate.find(elements.translation).text(termData.translation);
+		wrapperTemplate.find(".js-native").text(termData.nativeDef);
+		wrapperTemplate.find(".js-target").text(termData.targetDef);
+	}
+
+	elements.searchResult.html(wrapperTemplate).addClass("search-result-container");
 
 	if(!state.isInitialRender) {
 		$(elements.buttonAddTerm).focus();
@@ -128,7 +148,7 @@ function renderList(state, elements){
 }
 
 function renderError(msg, elements) {
-	elements.errorWrapper.html("<div class='js-search-bar-error search-bar-error'>" + msg + "</div>");
+	elements.errorWrapper.html("<div class='js-error error'>" + msg + "</div>");
 }
 
 function renderTextArea(wordList, elements) {
@@ -202,7 +222,7 @@ function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement,
 		if (searchString) {
 			getApiData(state, elements, BASE_URL, searchString, processSearchResults);
 		} else {
-			renderError(state.errorMessages.emptySearch, elements);
+			renderSearchResults(state, null, elements, "ERROR", state.errorMessages.emptySearch);
 			elements.appInput.val(searchString);
 		}
 	});
@@ -246,8 +266,8 @@ function main() {
 		buttonAddTerm: ".js-button-add-term",
 		buttonConvert: $(".js-button-convert"),
 		buttonOnboard: $(".js-button-onboard"),
-		error: $(".js-search-bar-error"),
-		errorWrapper: $(".js-search-bar-error-wrapper"),
+		error: $(".js-error"),
+		errorWrapper: $(".js-error-wrapper"),
 		instructions: $(".js-instructions"),
 		landingWrapper: $(".js-landing"),
 		nativeDef: ".js-nativeDef",

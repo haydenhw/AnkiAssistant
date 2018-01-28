@@ -7,6 +7,7 @@
 .search-result {
   position: relative;
 	margin-bottom: 10px;
+  min-height: 127px;
 }
 
 .term, .translation {
@@ -18,4 +19,23 @@
 .translation{
   margin-top: 20px;
   color: $app-primary;
+}
+
+.error-wrapper {
+  color: $grey-super-dark;
+  font-family: 'Roboto';
+  font-size: .7em;
+  // font-weight: 300;
+  line-height: 1.75;
+  text-align: center;
+
+}
+
+.error {
+  text-align: left;
+  display: inline-block;
+}
+
+.not-found {
+  color: $black-faded;
 }

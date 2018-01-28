@@ -1,4 +1,5 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
@@ -10,27 +11,24 @@ module.exports = {
     filename: "bundle.js",
     path: __dirname + "/dist",
   },
-  devServer: {
-    overlay: true,
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"],
+        use: ["babel-loader"],
       },
       {
         test: /(\.scss$|\.css$)/,
         exclude: /node_modules/,
-        loaders: ["style-loader", "css-loader", "sass-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpg|svg|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(png|jpg|svg|woff|woff2|eot|ttf)$/,
         exclude: /node_modules/,
-        loader: ["file-loader"],
+        use: ["file-loader"],
       }
-    ],
+    ]
   },
   plugins: [
     new CopyWebpackPlugin([
@@ -41,6 +39,5 @@ module.exports = {
       template: __dirname + "/public/index.html",
     }),
     new webpack.NamedModulesPlugin(),
-  ],
-  devtool: 'inline-source-map'
+  ]
 };

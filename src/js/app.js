@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { Spinner } from 'spin.js';
 import { BASE_URL, spinnerOptions } from './config';
 import { elements } from './elements';
-import { state } from './state';
+import { savedWordList, state } from './state';
 
 import './director.min.js';
 import '../styles/index.scss'
@@ -259,8 +259,12 @@ function main() {
 
 	elements.appInput.focus();
 
-	// start app with sample data for demonstration
-  getApiData(state, elements, BASE_URL, 'welcome' , processSearchResultsWithCallback(function() {
+	// start app with sample data for demonstration if no data exists in sessionStorage
+	var lastSearchedWord = savedWordList
+		? savedWordList[savedWordList.length - 1].term
+		: "welcome"
+	console.log(lastSearchedWord);
+  getApiData(state, elements, BASE_URL, lastSearchedWord , processSearchResultsWithCallback(function() {
 		setTimeout(function() {
 			state.isInitialRender = false;
 		}, 0);

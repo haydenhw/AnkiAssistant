@@ -3,7 +3,7 @@
 // console.log(localStorage.getItem("foo"));
 // console.log(localStorage.wordList)
 
-var savedWordList = sessionStorage.getItem("wordList")
+export var savedWordList = sessionStorage.getItem("wordList")
   ? JSON.parse(sessionStorage.getItem("wordList"))
   : null;
 

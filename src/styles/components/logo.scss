@@ -1,14 +1,14 @@
 .logo {
   &.landing-logo {
     color: black;
-    font-size: .6em;
+    font-size: .5em;
     // left: 30px;
     position: absolute;
     top: 20px;
 
     @include respond-to(small-screens) {
       left: inherit;
-      font-size: .5em;
+      font-size: .4em;
     }
 
     @include respond-to(wide-screens) {

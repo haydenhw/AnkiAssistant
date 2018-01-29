@@ -68,7 +68,7 @@ section {
 }
 
 @include placeholder() {
-  font-family: 'Roboto';
+  font-family: $font-secondary;
   font-size: 14px;
   font-weight: 300;
   vertical-align: top;

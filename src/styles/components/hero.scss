@@ -1,5 +1,6 @@
 .hero-container {
   background: linear-gradient($app-primary 15%, #06a94c 100%);
+  background: linear-gradient($hero-gradient-start 15%, $hero-gradient-finish 100%);
 }
 
 .hero {

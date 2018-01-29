@@ -1,13 +1,9 @@
-$font-heading: 'Roboto Condensed', sans-serif;
-$font-paragrpah: 'Roboto', sans-serif;
-
-$font-main: 'Montserrat';
-
+// colors
 $black-faded: #424242;
 $blue: #3e86c7;
-$green: #4bae4f;
-$green-light: #2dcc70;
-$green-light-hover: #7be57f;
+$green: #2AB366;
+$green-light: #3dcb81;
+$green-dark: #01A150;
 $grey-light: #e2e2e2;
 $grey-medium: #f8f8f8;
 $grey-dark: #b0b0b0;
@@ -19,14 +15,17 @@ $white: #ffffff;
 $teal: #49ada4;
 $indigo: #4055d4;
 
-$hero-background: $green;
+$hero-gradient-start: $green-light;
+$hero-gradient-finish: $green;
 
 $app-primary: $green-light;
-$app-primary: #3dcb81;
+$landing-primary: $green;
 
-$landing-primary: $green-light;
+//fonts
+$font-main: 'Montserrat';
+$font-secondary: 'Roboto';
+
 // breakpoints
-
 $break-mobile: 480px;
 $break-tablet: 768px;
 $break-medium: 960px;

@@ -8,7 +8,7 @@
 
     @include respond-to(small-screens) {
       left: inherit;
-      font-size: .55em;
+      font-size: .5em;
     }
 
     @include respond-to(wide-screens) {

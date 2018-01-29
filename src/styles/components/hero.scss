@@ -36,13 +36,22 @@
 }
 
 .hero-text-col {
-  // padding-left: 12%;
+  @include respond-to(medium-screens) {
+    width: 50%;
+  };
+
+  @include respond-to(small-screens) {
+    width: 100%;
+  };
+  // @include respond-to(medium-screens) {
+  //   width: 50%;
+  // }
+  //
+  // @include respond-to(small-screens) {
+  //   width: 100%;
+  // }
 }
 
-.hero-image-col {
-  // border: 1px solid black;
-  width: 800px;
-}
 
 .hero-heading-wrapper {
   // border: 1px solid black;
@@ -64,25 +73,27 @@
   font-size: .5em;
 }
 
-.hero-laptop-image-col {
+.hero-laptop-col {
   position: relative;
-}
-
-.hero-laptop-image {
-  position: absolute;
-
-  // border: 1px solid white;
-  width: 105%;
-
-  // @include respond-to(wide-screens) {
-  //   position: relative;
-  //   right: 15%;
-  //   width: 750px;
-  // };
+  height: 420px;
 
   @include respond-to(medium-screens) {
+    width: 50%;
+  };
+
+  @include respond-to(small-screens) {
+    width: 100%;
+  };
+}
+
+.hero-laptop {
+  position: absolute;
+  width: 105%;
+
+  @include respond-to(medium-screens) {
+    top: 6%;
+    left: -8%;
     width: 120%;
-    margin-top: 10%;
   };
 
   @include respond-to(small-screens) {

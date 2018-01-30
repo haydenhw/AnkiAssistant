@@ -98,6 +98,7 @@
 
   @include respond-to(small-screens) {
     margin-top: 0;
+    min-width: 100%;
     padding-top: 50px;
     position: static;
     width: 100%;

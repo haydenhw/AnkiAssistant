@@ -4,7 +4,7 @@
 	position: absolute;
 	top: calc(100% + 10px);
 	left: 100%;
-	transform: translate(-100%, 0);
+	@include transform(translate(-100%, 0));
   transition: box-shadow .1s ease-in-out;
 
 	&:disabled {

@@ -41,6 +41,6 @@
   //   left: 50%;
   //   position: absolute;
   //   top: 50px;
-  //   transform: translateX(-50%);
+  //   @include transform(translateX(-50%));
   //   width: 87px;
   // }

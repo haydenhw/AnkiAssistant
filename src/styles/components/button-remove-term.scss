@@ -6,11 +6,12 @@
 	position: absolute;
 	top: calc(50% - 7px);
 	left: 100%;
-	transform: translate(-100%, -50%);
 	transition: font-size .2s;
+
+	@include transform(translate(-100%, -50%));
 
 	&:hover {
 		opacity: 1;
 		font-size: 1.3em;
-	}
+}
 }

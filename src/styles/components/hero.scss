@@ -1,6 +1,7 @@
 .hero-container {
   background: linear-gradient($hero-gradient-start 15%, $hero-gradient-finish 100%);
   padding: 0 40px;
+  padding-bottom: 60px;
 
   @include respond-to(small-screens) {
     padding: 0;
@@ -10,8 +11,8 @@
 .hero {
   color: white;
   font-size: 2.6em;
+  height: 580px;
   padding-top: 130px;
-  padding-bottom: 90px;
   position: relative;
   text-align: center;
 
@@ -21,6 +22,7 @@
   }
 
   @include respond-to(small-screens) {
+    height: 100%;
     padding-top: 75px;
     padding-bottom: 5vw;
   }
@@ -35,11 +37,11 @@
   display: inline-block;
 }
 
-.hero-col {
-  display: inline-block;
-  vertical-align: top;
-  font-size: 1em;
-}
+// .hero-col {
+//   display: inline-block;
+//   vertical-align: top;
+//   font-size: 1em;
+// }
 
 .hero-text-col {
 }
@@ -73,11 +75,7 @@
 
 .hero-laptop-col {
   position: relative;
-  // height: 420px;
-
-  // @include respond-to(medium-screens) {
-  //   width: 50%;
-  // };
+  height: 100%;
 
   @include respond-to(smartphones) {
     height: 0;

@@ -33,6 +33,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       { from: "public/images", to: "public/images" },
+      { from: "public/favicon.ico", to: "public/favicon.ico" },
       { from: "src/js/director.min.js", to: "src/js"}
     ]),
     new HtmlWebpackPlugin({

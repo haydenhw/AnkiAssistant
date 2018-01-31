@@ -1,8 +1,10 @@
 .section-title {
   color: $landing-primary;
   position: relative;
-  // margin-top: 100px;
-  // margin: 55px;
+
+  @include respond-to(small-screens) {
+    font-size: 1.3em;
+  }
 
 }
 
@@ -17,6 +19,7 @@
 }
 
 .section-image {
+  margin-top: 40px;
   width: 300px;
 
   @include respond-to(smartphones) {

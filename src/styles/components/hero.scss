@@ -1,23 +1,28 @@
 .hero-container {
-  background: linear-gradient($app-primary 15%, #06a94c 100%);
   background: linear-gradient($hero-gradient-start 15%, $hero-gradient-finish 100%);
+  padding: 0 40px;
+
+  @include respond-to(small-screens) {
+    padding: 0;
+  }
 }
 
 .hero {
   color: white;
   font-size: 2.6em;
   padding-top: 130px;
-  padding-bottom: 50px;
+  padding-bottom: 90px;
   position: relative;
   text-align: center;
 
   @include respond-to(medium-screens) {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   @include respond-to(small-screens) {
-    padding-top: 50px;
+    padding-top: 75px;
+    padding-bottom: 40px;
   }
 }
 
@@ -37,28 +42,19 @@
 }
 
 .hero-text-col {
-  @include respond-to(medium-screens) {
-    width: 50%;
-  };
-
-  @include respond-to(small-screens) {
-    width: 100%;
-  };
-  // @include respond-to(medium-screens) {
-  //   width: 50%;
-  // }
-  //
-  // @include respond-to(small-screens) {
-  //   width: 100%;
-  // }
 }
-
 
 .hero-heading-wrapper {
   // border: 1px solid black;
   max-width: 365px;
-  padding-top: 35px;
+  padding-top: 25px;
+  padding-left: 10px;
   // text-align: left;
+
+  @include respond-to(medium-screens) {
+    font-size: .9em;
+  };
+
   @include respond-to(small-screens) {
     max-width: 750px;
     margin: 0 auto;
@@ -72,30 +68,32 @@
 
 .hero-sub-heading{
   font-size: .5em;
+  line-height: 1.3;
 }
 
 .hero-laptop-col {
   position: relative;
   height: 420px;
 
-  @include respond-to(medium-screens) {
-    width: 50%;
-  };
+  // @include respond-to(medium-screens) {
+  //   width: 50%;
+  // };
 
   @include respond-to(small-screens) {
+    height: 0;
     width: 100%;
   };
 }
 
 .hero-laptop {
   position: absolute;
-  width: 105%;
-  left: -2%;
+  width: 120%;
+  left: -10%;
 
   @include respond-to(medium-screens) {
-    top: 6%;
-    left: -8%;
-    width: 120%;
+    top: 0;
+    left: -21%;
+    width: 150%;
   };
 
   @include respond-to(small-screens) {

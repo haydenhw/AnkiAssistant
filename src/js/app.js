@@ -1,4 +1,3 @@
-console.log('hello')
 import $ from 'jquery';
 import { Spinner } from 'spin.js';
 import { BASE_URL, spinnerOptions } from './config';

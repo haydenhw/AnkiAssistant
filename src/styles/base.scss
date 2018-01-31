@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   font-family: $font-main;
 }
@@ -48,23 +47,24 @@ label {
 }
 
 main {
-  padding: 100px 0;
+  padding: 100px 40px;
 
   @include respond-to(small-screens) {
     padding: 25px 0;
   }
 }
 
+p {
+  line-height: 1.75;
+}
 
 section {
-  // border: 1px solid #000;
   font-size: 1.7em;
-  line-height: 1.75;
   text-align: center;
 
-  img {
-    width: 100%;
-  }
+  // img {
+  //   width: 100%;
+  // }
 }
 
 @include placeholder() {

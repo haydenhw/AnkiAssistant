@@ -23,8 +23,8 @@ function processSearchResults(state, term, elements, callback) {
 	 			translation: data.tuc[0].phrase.text,
 	 		};
 
-	 		state.currTerm = termData;
 			$("form").find(elements.appInput).val("");
+	 		state.currTerm = termData;
 			renderSearchResults(state, termData, elements);
 
 	 	} else {
@@ -69,6 +69,56 @@ function listToString(list) {
 		return av + cv.term + " ; " + cv.translation + "\n";
 	}, "");
 }
+
+function getPageMap(elements) {
+	return {
+		"APP": elements.appWrapper,
+		"LANDING": elements.landingWrapper,
+		"SEARCH": elements.searchWrapper,
+	}
+}
+
+function showPage(pageMap, pageSelector, callback) {
+	Object.keys(pageMap).forEach(function(page){
+		if (page === pageSelector) {
+			pageMap[page].css("display", "block");
+		} else {
+			pageMap[page].css("display", "none");
+		}
+	});
+
+	if(callback) {
+		callback();
+	}
+}
+
+function showApp(elements) {
+	const grey = "#f7f7f7";
+	showPage(getPageMap(elements), "APP", function() {
+		elements.appInput.focus();
+		$("body").css("background-color", grey);
+	});
+}
+
+function showLanding(elements) {
+	const white = "#ffffff";
+	showPage(getPageMap(elements), "LANDING", function() {
+		$("body").css("background-color", white);
+	});
+}
+
+function showSearch(elements) {
+	const white = "#ffffff";
+	showPage(getPageMap(elements), "SEARCH", function() {
+		$("body").css("background-color", white);
+	});
+}
+
+function toggleSpinner(elements) {
+	elements.searchIcon.toggleClass("hide");
+	elements.spinner.toggleClass("hide");
+}
+
 function renderSearchResults(state, termData, elements, resultType, msg) {
 	var resultTemplate = resultType !== "ERROR"
 		? (
@@ -144,55 +194,6 @@ function renderTextArea(wordList, elements) {
 		.find("textarea")
 		.val(listString)
 		.css("height", textAreaHeight);
-}
-
-function getPageMap(elements) {
-	return {
-		"APP": elements.appWrapper,
-		"LANDING": elements.landingWrapper,
-		"SEARCH": elements.searchWrapper,
-	}
-}
-
-function showPage(pageMap, pageSelector, callback) {
-	Object.keys(pageMap).forEach(function(page){
-		if (page === pageSelector) {
-			pageMap[page].css("display", "block");
-		} else {
-			pageMap[page].css("display", "none");
-		}
-	});
-
-	if(callback) {
-		callback();
-	}
-}
-
-function showApp(elements) {
-	const grey = "#f7f7f7";
-	showPage(getPageMap(elements), "APP", function() {
-		elements.appInput.focus();
-		$("body").css("background-color", grey);
-	});
-}
-
-function showLanding(elements) {
-	const white = "#ffffff";
-	showPage(getPageMap(elements), "LANDING", function() {
-		$("body").css("background-color", white);
-	});
-}
-
-function showSearch(elements) {
-	const white = "#ffffff";
-	showPage(getPageMap(elements), "SEARCH", function() {
-		$("body").css("background-color", white);
-	});
-}
-
-function toggleSpinner(elements) {
-	elements.searchIcon.toggleClass("hide");
-	elements.spinner.toggleClass("hide");
 }
 
 function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement, callback) {

@@ -4,8 +4,9 @@
 	position: absolute;
 	top: calc(100% + 10px);
 	left: 100%;
-	@include transform(translate(-100%, 0));
   transition: box-shadow .1s ease-in-out;
+
+	@include transform(translate(-100%, 0));
 
 	&:disabled {
 			cursor: not-allowed;

@@ -7,19 +7,16 @@ body {
 }
 
 button {
+  border-radius: 5px;
+  border: 0;
   cursor: pointer;
   display: inline-block;
-  background-color: white;
-  border-radius: 5px;
-  color: $app-primary;
   font-family: $font-main;
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
   padding: 1em 2em;
-  border: 0;
   z-index: 1;
 
-  transition: all .5s ease-in-out;
   &:focus {
     outline: 0;
   }
@@ -61,10 +58,6 @@ p {
 section {
   font-size: 1.7em;
   text-align: center;
-
-  // img {
-  //   width: 100%;
-  // }
 }
 
 @include placeholder() {

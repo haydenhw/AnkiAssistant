@@ -6,6 +6,6 @@ module.exports = merge(common, {
   devServer: {
     overlay: true,
     port: 3000,
-    stats: "minimal",
-  }
+    stats: 'minimal',
+  },
 });

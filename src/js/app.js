@@ -4,7 +4,7 @@ import { BASE_URL, spinnerOptions } from './config';
 import { elements } from './elements';
 import { savedWordList, state } from './state';
 
-import './director.min';
+// import './director.min.js';
 import '../styles/index.scss';
 import '../styles/icons/style.css';
 

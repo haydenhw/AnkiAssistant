@@ -3,11 +3,12 @@ import { Spinner } from 'spin.js';
 import { BASE_URL, spinnerOptions } from './config';
 import { elements } from './elements';
 import { savedWordList, state } from './state';
-
+import { print } from './print';
 // import './director.min.js';
 import '../styles/index.scss';
 import '../styles/icons/style.css';
 
+print();
 
 function processSearchResults(state, term, elements, callback) {
   return function(data) {

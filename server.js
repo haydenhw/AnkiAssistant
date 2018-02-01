@@ -1,10 +1,10 @@
 const express = require('express');
 const favicon = require('express-favicon');
-
-const app = express();
 const path = require('path');
 
-const PORT = process.env.PORT || 3001;
+const app = express();
+
+const PORT = process.env.PORT || 3000;
 app.use(express.static('dist'));
 
 app.listen(PORT, (err) => {

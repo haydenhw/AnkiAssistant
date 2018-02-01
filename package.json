@@ -7,12 +7,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "clean": "rimraf dist",
-    "deploy": "npm run build && git cp 'Builds project for deployment' && git push heroku master",
-    "lint:fix": "eslint --fix --ext .js ./ || exit 0",
-    "lint": "eslint --ext .js ./  || exit 0"
+    "start": "webpack-dev-server --config webpack.dev.js || true",
+    "build": "webpack --env.production --config webpack.prod.js || true",
+    "deploy": "npm run build && git cp 'Builds project for deployment' && git push heroku master || true",
+    "lint:fix": "eslint --fix --ext .js ./ || true",
+    "lint": "eslint --ext .js ./  || true"
   },
   "repository": {
     "type": "git",

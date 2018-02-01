@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "clean": "rimraf dist",
-    "deploy": "npm run build && git cp 'building for deployment' && git push heroku master",
+    "deploy": "npm run build && git cp 'Builds project for deployment' && git push heroku master",
     "lint:fix": "eslint --fix --ext .js src/js || exit 0",
     "lint": "eslint --ext .js --ext .html ./public || 0"
   },

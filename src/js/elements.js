@@ -24,4 +24,5 @@ export var elements = {
   term: ".js-term",
   textArea: $(".js-textArea"),
   translation: ".js-translation",
+  vocabListItems: $(".js-vocab-list-items"),
 };

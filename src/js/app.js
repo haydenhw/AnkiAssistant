@@ -23,7 +23,7 @@ function processSearchResults(state, term, elements, callback) {
 	 			translation: data.tuc[0].phrase.text,
 	 		};
 
-			$("form").find(elements.appInput).val("");
+			elements.appForm.find(elements.appInput).val("");
 	 		state.currTerm = termData;
 			renderSearchResults(state, termData, elements);
 
@@ -143,11 +143,10 @@ function renderSearchResults(state, termData, elements, resultType, msg) {
 		"</div>"
 	);
 
+
 	if (termData) {
 		wrapperTemplate.find(elements.term).text(termData.term);
 		wrapperTemplate.find(elements.translation).text(termData.translation);
-		wrapperTemplate.find(".js-native").text(termData.nativeDef);
-		wrapperTemplate.find(".js-target").text(termData.targetDef);
 	}
 
 	elements.searchResult.html(wrapperTemplate).addClass("search-result-container");
@@ -166,6 +165,7 @@ function renderItem(state, term, translation, idx, elements) {
 		"	<div class='js-translation translation inline'></div>" +
 			"<span class='js-button-remove-term button-remove-term icon-trash'></span>" +
 		"</div>");
+
 	template.find(".js-term").text(term);
 	template.find(".js-translation").text(translation);
 	template.find(".js-button-remove-term").click(function(){
@@ -179,7 +179,7 @@ function renderList(state, elements){
 		return renderItem(state, term.term, term.translation, idx, elements);
 	});
 
-	$(".js-vocab-list-items").html(listHTML);
+	elements.vocabListItems.html(listHTML);
 }
 
 function renderTextArea(wordList, elements) {
@@ -222,7 +222,7 @@ function initAddTermHandler(state, elements) {
 }
 
 function initConvertHandler(state, elements) {
-	$(".js-button-convert").on("click", function() {
+	elements.buttonConvert.on("click", function() {
 		var output = listToString(state.wordList);
 		renderTextArea(state.wordList, elements);
 	});

@@ -1,11 +1,11 @@
-export	var BASE_URL = "https://glosbe.com/gapi/translate?callback=?";
+export	var BASE_URL = 'https://glosbe.com/gapi/translate?callback=?';
 
 export var spinnerOptions = {
   lines: 13, // The number of lines to draw
   length: 6, // The length of each line
   width: 3, // The line thickness
   radius: 4, // The radius of the inner circle
-  scale: .9, // Scales overall size of the spinner
+  scale: 0.9, // Scales overall size of the spinner
   corners: 1, // Corner roundness (0..1)
   color: '#757575', // CSS color or array of colors
   fadeColor: 'transparent', // CSS color or array of colors
@@ -20,5 +20,5 @@ export var spinnerOptions = {
   top: '50%', // Top position relative to parent
   left: '50%', // Left position relative to parent
   shadow: 'none', // Box-shadow for the lines
-  position: 'absolute' // Element positioning
+  position: 'absolute', // Element positioning
 };

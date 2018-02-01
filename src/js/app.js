@@ -24,9 +24,9 @@ function processSearchResults(state, term, elements, callback) {
       };
 
       elements.appForm.find(elements.appInput).val('');
-        state.currTerm = termData;
+      state.currTerm = termData;
       renderSearchResults(state, termData, elements);
-     } else {
+    } else {
       renderSearchResults(state, null, elements, 'ERROR', state.errorMessages.termNotFound(term));
     }
   };
@@ -34,7 +34,7 @@ function processSearchResults(state, term, elements, callback) {
 
 function processSearchResultsWithCallback(callback) {
   return function (state, term, elements) {
-       return processSearchResults(state, term, elements, callback);
+    return processSearchResults(state, term, elements, callback);
   };
 }
 
@@ -138,7 +138,7 @@ function renderSearchResults(state, termData, elements, resultType, msg) {
 
   const wrapperTemplate = $(
     `<div class='js-search-result search-result well'>${
-       resultTemplate
+      resultTemplate
     }</div>`,
   );
 
@@ -185,7 +185,7 @@ function renderTextArea(wordList, elements) {
   const msg = 'Almost done! Now just copy and paste this semicolon-separated list into a text file on your desktop and import into Anki.';
   const textAreaHTML = "<textarea class='text-list well'></textarea>";
   const listString = listToString(wordList);
-  const textAreaHeight = `${wordList.length * 14 + 100}px`;
+  const textAreaHeight = `${(wordList.length * 14) + 100}px`;
 
   elements.instructions.html(msg);
   elements.textArea
@@ -195,7 +195,7 @@ function renderTextArea(wordList, elements) {
     .css('height', textAreaHeight);
 }
 
-function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement, callback) {
+function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement) {
   $(formElement).submit((e) => {
     e.preventDefault();
     const searchString = inputElement.val().toLowerCase();
@@ -222,7 +222,6 @@ function initAddTermHandler(state, elements) {
 
 function initConvertHandler(state, elements) {
   elements.buttonConvert.on('click', () => {
-    const output = listToString(state.wordList);
     renderTextArea(state.wordList, elements);
   });
 }

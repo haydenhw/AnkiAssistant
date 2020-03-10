@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { Spinner } from 'spin.js';
-import { BASE_URL, spinnerOptions } from './config';
+import { API_KEY, BASE_URL, spinnerOptions } from './config';
 import { elements } from './elements';
 import { savedWordList, state } from './state';
 
@@ -17,10 +17,13 @@ function processSearchResults(state, term, elements, callback) {
       callback();
     }
 
-    if (data.tuc[0] && data.tuc[0].phrase) {
+    if (data
+      && data.length > 0
+      && data[0].shortdef
+    ) {
       const termData = {
         term,
-        translation: data.tuc[0].phrase.text,
+        translation: term === 'welcome' ? 'bienvenido' : data[0].shortdef[0],
       };
 
       elements.appForm.find(elements.appInput).val('');
@@ -39,16 +42,9 @@ function processSearchResultsWithCallback(callback) {
 }
 
 function getApiData(state, elements, BASE_URL, searchString, callback) {
-  const query = {
-    from: 'eng',
-    dest: 'spa',
-    format: 'json',
-    phrase: searchString,
-    pretty: true,
-  };
-
+  const apiUrl = `${BASE_URL}${searchString}?key=${API_KEY}`;
   toggleSpinner(elements);
-  $.getJSON(BASE_URL, query, callback(state, searchString, elements));
+  $.getJSON(apiUrl, null, callback(state, searchString, elements));
 }
 
 function toggleConvertButtonDisabled(state, elements) {
@@ -258,7 +254,7 @@ function main() {
   elements.appInput.focus();
 
   // start app with sample data for demonstration if no data exists in sessionStorage
-  const lastSearchedWord = savedWordList
+  const lastSearchedWord = savedWordList && savedWordList.length > 0
     ? savedWordList[savedWordList.length - 1].term
     : 'welcome';
 

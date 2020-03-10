@@ -1,4 +1,5 @@
-export	var BASE_URL = 'https://glosbe.com/gapi/translate?callback=?';
+export var BASE_URL = 'https://dictionaryapi.com/api/v3/references/spanish/json/';
+export var API_KEY = 'bbb4cd5d-37aa-4c15-a4e8-4996f50fadfb';
 
 export var spinnerOptions = {
   lines: 13, // The number of lines to draw

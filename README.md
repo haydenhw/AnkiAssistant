@@ -1,5 +1,5 @@
 
-# PCBflow
+# Anki Assistant
 ![App screenshot](/public/images/app-screenshot-full.png)
 
 ## Live App

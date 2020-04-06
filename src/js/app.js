@@ -241,7 +241,6 @@ function main() {
 
   const routes = {
     '/': function() { showLanding(elements); },
-     // TODO decide if I need a search page and delete this otherwise
     '/search': function() { showSearch(elements); },
     '/app': function() { showApp(elements); },
   };

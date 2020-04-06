@@ -1,138 +1,125 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <title>AnkiAssistant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-  <link rel="icon" href="public/favicon.ico">
+    <title>AnkiAssistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="icon" href="public/favicon.ico">
 </head>
 <body>
-  <div class="js-landing landing" style="display:none">
+<!--Landing Page-->
+<div class="js-landing landing" style="display:none">
     <div class="hero-container">
-      <div class="landing-container">
-        <div class="hero row">
-          <div class="logo landing-logo">
-            <img class="logo-image" src="/public/images/chili-logo-black.svg" alt="robot-logo">
-            <div class="logo-text">AnkiAssistant</div>
-          </div>
-          <div class="col5 text-col hero-text-col">
-            <div class="hero-heading-wrapper">
-              <h1 class="hero-heading">Learning spanish vocabulary just got easier.</h1>
-              <p class="hero-sub-heading">Take the tedium out of creating custom Spanish-English language decks on the Anki platform.</p>
-              <button class="js-button-onboard button-onboard">Get Started</button>
+        <div class="landing-container">
+            <div class="hero row">
+                <div class="logo landing-logo">
+                    <img class="logo-image" src="/public/images/chili-logo-black.svg" alt="robot-logo">
+                    <div class="logo-text">AnkiAssistant</div>
+                </div>
+                <div class="col5 text-col hero-text-col">
+                    <div class="hero-heading-wrapper">
+                        <h1 class="hero-heading">Learning spanish vocabulary just got easier.</h1>
+                        <p class="hero-sub-heading">Take the tedium out of creating custom Spanish-English language
+                            decks on the Anki platform.</p>
+                        <button class="js-button-onboard button-onboard">Get Started</button>
+                    </div>
+                </div>
+                <div class="col7 hero-laptop-col">
+                    <img src="/public/images/laptop-screenshot.png" alt="app-screenshot" class="hero-laptop">
+                </div>
             </div>
-          </div>
-          <div class="col7 hero-laptop-col">
-            <img src="/public/images/laptop-screenshot.png" alt="app-screenshot" class="hero-laptop">
-          </div>
         </div>
-      </div>
     </div>
     <main>
-      <div class="landing-container">
-        <section class="row">
-          <div class="col6 text-col">
-            <h2 class="section-title">What is Anki anyway?</h2>
-            <p class="section-content">
-              Anki is a "smart" flashcard program that employs the spaced repitition learning technique to make rembembering things easy and efficient.
-              Anki is especially useful for learning new language vocabulary.
-            </p>
-          </div>
-          <div class="col6 image-col">
-            <img class="section-image anki-logo" src="/public/images/anki-example-card.png" alt="anki-logo">
-          </div>
-        </section>
-        <section class="row">
-          <div class="col6 image-col col-frustrated-lg-scrn">
-            <img class="section-image" src="/public/images/frustrated.png" alt="frustrated-person">
-          </div>
-          <div class="col6 text-col">
-            <h2 class="section-title">The problem with Anki</h2>
-            <p class="section-content">
-              Unfortunately, building large custom vocuabluary decks with Anki's default UI can be quite tedious as it generally requires
-              painstaking amounts of copying and pasting terms and their translations form a third party language dictionary into a text file
-              that is eventually imported into Anki.
-            </p>
-          </div>
-          <div class="col6 image-col col-frustrated-small-scrn">
-            <img class="section-image" src="/public/images/frustrated.png" alt="frustrated-person">
-          </div>
-        </section>
-        <section class="row">
-          <div class="col6 text-col">
-            <h2 class="section-title">Introucing AnkiAssistant</h2>
-            <p class="section-content">
-              AnkiAssistant elminates the excessive copy and pasting required to create custom Spanish vocabulary decks in Anki. Leveraging the Globes language
-              dictionary API, AnkiAssistant allows users to simply search for new words they'd like to learn and add them to a list.
-            </p>
-          </div>
-          <div class="col6 image-col">
-            <img class="section-image" src="/public/images/happy.png" alt="happy-person">
-          </div>
-        </section>
-      </div>
-    </main>
-  </div>
-
-  <div class="js-app app" style="display:none">
-    <header class="app-header">
-      <div class="app-container header-container">
-        <div class="js-app-logo app-logo logo">
-          <img class="logo-image" src="/public/images/chili-logo-white.svg" alt="robot-logo">
-          <div class="logo-text">AnkiAssistant</div>
+        <div class="landing-container">
+            <section class="row">
+                <div class="col6 text-col">
+                    <h2 class="section-title">What is Anki anyway?</h2>
+                    <p class="section-content">
+                        Anki is a "smart" flashcard program that employs the spaced repitition learning technique to
+                        make rembembering things easy and efficient.
+                        Anki is especially useful for learning new language vocabulary.
+                    </p>
+                </div>
+                <div class="col6 image-col">
+                    <img class="section-image anki-logo" src="/public/images/anki-example-card.png" alt="anki-logo">
+                </div>
+            </section>
+            <section class="row">
+                <div class="col6 image-col col-frustrated-lg-scrn">
+                    <img class="section-image" src="/public/images/frustrated.png" alt="frustrated-person">
+                </div>
+                <div class="col6 text-col">
+                    <h2 class="section-title">The problem with Anki</h2>
+                    <p class="section-content">
+                        Unfortunately, building large custom vocuabluary decks with Anki's default UI can be quite
+                        tedious as it generally requires
+                        painstaking amounts of copying and pasting terms and their translations form a third party
+                        language dictionary into a text file
+                        that is eventually imported into Anki.
+                    </p>
+                </div>
+                <div class="col6 image-col col-frustrated-small-scrn">
+                    <img class="section-image" src="/public/images/frustrated.png" alt="frustrated-person">
+                </div>
+            </section>
+            <section class="row">
+                <div class="col6 text-col">
+                    <h2 class="section-title">Introucing AnkiAssistant</h2>
+                    <p class="section-content">
+                        AnkiAssistant elminates the excessive copy and pasting required to create custom Spanish
+                        vocabulary decks in Anki. Leveraging the Globes language
+                        dictionary API, AnkiAssistant allows users to simply search for new words they'd like to learn
+                        and add them to a list.
+                    </p>
+                </div>
+                <div class="col6 image-col">
+                    <img class="section-image" src="/public/images/happy.png" alt="happy-person">
+                </div>
+            </section>
         </div>
-        <form class="js-app-form search-bar-form">
-            <div class="search-bar-container">
-                <input
-                  type="text"
-                  class="js-search-bar-input search-bar-input well"
-                  placeholder="Enter a term in english"
-                >
-                <button class="button-search-submit" type="submit">
-                  <span class="js-search-bar-icon search-bar-icon icon-search2"></span>
-                </button>
-                <span class="js-search-bar-spinner search-bar-spinner hide"></span>
+    </main>
+</div>
+<!--Main Application Page-->
+<div class="js-app app" style="display:none">
+    <header class="app-header">
+        <div class="app-container header-container">
+            <div class="js-app-logo app-logo logo">
+                <img class="logo-image" src="/public/images/chili-logo-white.svg" alt="robot-logo">
+                <div class="logo-text">AnkiAssistant</div>
             </div>
-        </form>
-      </div>
+            <form class="js-search-form search-bar-form">
+                <div class="search-bar-container">
+                    <input
+                            type="text"
+                            class="js-search-bar-input search-bar-input well"
+                            placeholder="Enter a term in english"
+                    >
+                    <button class="button-search-submit" type="submit">
+                        <span class="js-search-bar-icon search-bar-icon icon-search2"></span>
+                    </button>
+                    <span class="js-search-bar-spinner search-bar-spinner hide"></span>
+                </div>
+            </form>
+        </div>
     </header>
     <div>
     </div>
     <div class="app-container">
-      <div class="js-search-result-container module"></div>
-      <div class="js-vocab-list-container vocab-list-container module">
-        <h3>My List</h3>
-        <div class="js-vocab-list vocab-list well">
-          <div class="js-vocab-list-items"></div>
-          <button class='js-button-convert button-convert' disabled>Convert!</button>
+        <div class="js-search-result-container module"></div>
+        <div class="js-vocab-list-container vocab-list-container module">
+            <h3>My List</h3>
+            <div class="js-vocab-list vocab-list well">
+                <div class="js-vocab-list-items"></div>
+                <button class='js-button-convert button-convert' disabled>Convert!</button>
+            </div>
         </div>
-      </div>
-      <div class="text-list-container module">
-        <div class="js-instructions instructions"></div>
-        <div class="js-textArea"></div>
-      </div>
+        <div class="text-list-container module">
+            <div class="js-instructions instructions"></div>
+            <div class="js-textArea"></div>
+        </div>
     </div>
-  </div>
-</div>
-<!-- <div class="js-search search" style="display:none">
-<header class="app-header">
-</header>
-<div class="search-container">
-<div class="logo search-logo">
-<img class="logo-image" src="/public/images/logo-white.svg" alt="robot-logo">
-<div class="logo-text">AnkiAssistant</div>
-</div>
-<form class="js-search-form">
-<div class="search-bar-container search-page-input-container">
-<input type="text" class="js-search-page-input search-bar-input search-page-input well" placeholder="Enter a term in english">
-<input class="js-search-icon search-bar-icon" type="image" alt="search icn"  src="/public/images/searchButton.png">
-</div>
-<div class="js-search-bar-error search-bar-error"></div>
-</div>
-</form>
-</div> -->
 </div>
 <script src="/src/js/director.min.js" charset="utf-8"></script>
 </body>

@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
 export var elements = {
-  appForm: $('.js-app-form'),
-  appInput: $('.js-search-bar-input'),
+  searchForm: $('.js-search-form'),
+  searchBarInput: $('.js-search-bar-input'),
   appLogo: $('.js-app-logo'),
   appWrapper: $('.js-app'),
   buttonAddTerm: '.js-button-add-term',
@@ -13,7 +13,6 @@ export var elements = {
   instructions: $('.js-instructions'),
   landingWrapper: $('.js-landing'),
   nativeDef: '.js-nativeDef',
-  searchForm: $('.js-search-form'),
   searchIcon: $('.js-search-bar-icon'),
   searchInput: $('.js-search-page-input'),
   searchPageSearch: $('.js-search-page-input'),

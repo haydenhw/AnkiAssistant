@@ -1,5 +1,7 @@
 node_modules
 public/images/unused-images
+dist
+.idea
 
 npm-debug.log
 .DS_Store

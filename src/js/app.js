@@ -4,7 +4,6 @@ import { API_KEY, BASE_URL, spinnerOptions } from './config';
 import { elements } from './elements';
 import { savedWordList, state } from './state';
 
-// import './director.min.js';
 import '../styles/index.scss';
 import '../styles/icons/style.css';
 
@@ -23,10 +22,11 @@ function processSearchResults(state, term, elements, callback) {
     ) {
       const termData = {
         term,
+        // override translation for the term 'welcome'
         translation: term === 'welcome' ? 'bienvenido' : data[0].shortdef[0],
       };
 
-      elements.appForm.find(elements.appInput).val('');
+      elements.searchForm.find(elements.searchBarInput).val('');
       state.currTerm = termData;
       renderSearchResults(state, termData, elements);
     } else {
@@ -56,7 +56,7 @@ function removeTerm(state, idx, elements) {
   state.wordList.splice(idx, 1);
   sessionStorage.setItem('wordList', JSON.stringify(state.wordList));
   toggleConvertButtonDisabled(state, elements);
-  renderList(state, elements);
+  renderVocabList(state, elements);
 }
 
 function listToString(list) {
@@ -88,23 +88,23 @@ function showPage(pageMap, pageSelector, callback) {
 }
 
 function showApp(elements) {
-  const grey = '#f7f7f7';
   showPage(getPageMap(elements), 'APP', () => {
-    elements.appInput.focus();
+    elements.searchBarInput.focus();
+    const grey = '#f7f7f7';
     $('body').css('background-color', grey);
   });
 }
 
 function showLanding(elements) {
-  const white = '#ffffff';
   showPage(getPageMap(elements), 'LANDING', () => {
+    const white = '#ffffff';
     $('body').css('background-color', white);
   });
 }
 
 function showSearch(elements) {
-  const white = '#ffffff';
   showPage(getPageMap(elements), 'SEARCH', () => {
+    const white = '#ffffff';
     $('body').css('background-color', white);
   });
 }
@@ -153,7 +153,7 @@ function renderSearchResults(state, termData, elements, resultType, msg) {
   state.isInitialRender = false;
 }
 
-function renderItem(state, term, translation, idx, elements) {
+function renderVocabListItem(state, term, translation, idx, elements) {
   const template = $(
     "<div class='js-vocab-list-item vocab-list-item'>" +
     "  <div class='js-term term'></div>" +
@@ -169,15 +169,15 @@ function renderItem(state, term, translation, idx, elements) {
   return template;
 }
 
-function renderList(state, elements) {
-  const listHTML = state.wordList.map((term, idx) => {
-    return renderItem(state, term.term, term.translation, idx, elements);
-  });
+function renderVocabList(state, elements) {
+  const listHTML = state.wordList.map((term, idx) =>
+    renderVocabListItem(state, term.term, term.translation, idx, elements)
+  );
 
   elements.vocabListItems.html(listHTML);
 }
 
-function renderTextArea(wordList, elements) {
+function renderSemicolonSeparatedList(wordList, elements) {
   const msg = 'Almost done! Now just copy and paste this semicolon-separated list into a text file on your desktop and import into Anki.';
   const textAreaHTML = "<textarea class='text-list well'></textarea>";
   const listString = listToString(wordList);
@@ -194,14 +194,14 @@ function renderTextArea(wordList, elements) {
 function initSubmitHandler(state, BASE_URL, elements, formElement, inputElement) {
   $(formElement).submit((e) => {
     e.preventDefault();
-    const searchString = inputElement.val().toLowerCase();
     elements.errorWrapper.html('');
 
+    const searchString = inputElement.val().toLowerCase();
     if (searchString) {
       getApiData(state, elements, BASE_URL, searchString, processSearchResults);
     } else {
       renderSearchResults(state, null, elements, 'ERROR', state.errorMessages.emptySearch);
-      elements.appInput.val(searchString);
+      elements.searchBarInput.val(searchString);
     }
   });
 }
@@ -211,14 +211,14 @@ function initAddTermHandler(state, elements) {
     state.wordList.push(state.currTerm);
     sessionStorage.setItem('wordList', JSON.stringify(state.wordList));
     toggleConvertButtonDisabled(state, elements);
-    renderList(state, elements);
-    elements.appInput.focus();
+    renderVocabList(state, elements);
+    elements.searchBarInput.focus();
   });
 }
 
 function initConvertHandler(state, elements) {
   elements.buttonConvert.on('click', () => {
-    renderTextArea(state.wordList, elements);
+    renderSemicolonSeparatedList(state.wordList, elements);
   });
 }
 
@@ -241,6 +241,7 @@ function main() {
 
   const routes = {
     '/': function() { showLanding(elements); },
+     // TODO decide if I need a search page and delete this otherwise
     '/search': function() { showSearch(elements); },
     '/app': function() { showApp(elements); },
   };
@@ -251,28 +252,27 @@ function main() {
   const spinner = new Spinner(spinnerOptions).spin();
   elements.spinner.html(spinner.el);
 
-  elements.appInput.focus();
+  elements.searchBarInput.focus();
 
-  // start app with sample data for demonstration if no data exists in sessionStorage
+  // if this is the first time a user is visiting we want to populate a search result for demonstration purposes
+  // if there is nothing in the users search history we search the for term 'welcome'
   const lastSearchedWord = savedWordList && savedWordList.length > 0
     ? savedWordList[savedWordList.length - 1].term
     : 'welcome';
-
   getApiData(state, elements, BASE_URL, lastSearchedWord, processSearchResultsWithCallback(() => {
     setTimeout(() => {
       state.isInitialRender = false;
     }, 0);
   }));
 
-  renderList(state, elements);
+  renderVocabList(state, elements);
   toggleConvertButtonDisabled(state, elements);
 
   initGetStartedHandler(elements);
   initLogoClickHandler(elements);
   initAddTermHandler(state, elements);
   initConvertHandler(state, elements);
-  initSubmitHandler(state, BASE_URL, elements, elements.appForm, elements.appInput);
-  initSubmitHandler(state, BASE_URL, elements, elements.searchForm, elements.searchInput);
+  initSubmitHandler(state, BASE_URL, elements, elements.searchForm, elements.searchBarInput);
 }
 
 $(main());
